@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "./_variables.css";
+@import "./_base.css";
+@import "./_layout.css";
+@import "./_components.css";
+@import "./_sections.css";
+@import "./_animations.css";
+@import "./_projectSection.css";
+@import "./_aboutmeSection.css";
+@import "./_contactinfo.css";
+@import "./_contactform.css";
+@import "./_contactsection.css";
+@import "./_followme.css";
+@import "./_projectcard.css";
+@import "./_categoryBanner.css";
+@import "./_QrStyles.css";

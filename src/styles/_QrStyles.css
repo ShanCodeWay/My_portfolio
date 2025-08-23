@@ -1,0 +1,77 @@
+/* _QrStyles.css */
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #1f2937;
+  --color-text-primary: #000000;
+  --color-text-secondary: #4b5563;
+  --color-border: #e5e7eb;
+  --color-qr-bg: rgba(255, 255, 255, 0.9);
+  --color-qr-fg: #000000;
+  --color-qr-border: #e5e7eb;
+  --color-qr-text: #4b5563;
+}
+
+.dark {
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #374151;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d1d5db;
+  --color-border: #374151;
+  --color-qr-bg: rgba(17, 24, 39, 0.9);
+  --color-qr-fg: #ffffff;
+  --color-qr-border: #374151;
+  --color-qr-text: #d1d5db;
+}
+
+.qr-container {
+  position: fixed;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.qr-container.top-right {
+  top: 1rem;
+  right: 1rem;
+}
+
+.qr-container.top-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+.qr-container.bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.qr-container.bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.qr-wrapper {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-qr-bg);
+  border: 1px solid var(--color-qr-border);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+
+.qr-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.qr-canvas {
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.qr-label {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-align: center;
+  margin-top: 0.25rem;
+  color: var(--color-qr-text);
+}

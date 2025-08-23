@@ -1,0 +1,275 @@
+/* Contact Section Styles */
+.contact-section {
+  position: relative;
+  padding: 6rem 0;
+  background: var(--color-background);
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.contact-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.background-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.1;
+  animation: float 15s ease-in-out infinite;
+}
+
+.primary-glow {
+  width: 400px;
+  height: 400px;
+  background: var(--color-primary);
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.secondary-glow {
+  width: 500px;
+  height: 500px;
+  background: var(--color-secondary);
+  top: 60%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+.accent-glow {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent);
+  bottom: 10%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 4rem;
+}
+
+.contact-form-wrapper,
+.contact-info-wrapper {
+  height: 100%;
+}
+
+.contact-form-wrapper {
+  position: relative;
+}
+
+.contact-info-wrapper {
+  position: sticky;
+  top: 2rem;
+}
+
+/* Section Title Adjustments for Contact */
+.contact-section .section-title-container {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-section .section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.contact-section .section-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Animation for background elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) scale(1.05);
+  }
+  66% {
+    transform: translateY(10px) scale(0.95);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animate {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .contact-info-wrapper {
+    position: relative;
+    top: 0;
+  }
+  
+  .contact-section .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 0;
+  }
+  
+  .contact-container {
+    padding: 0 1rem;
+  }
+  
+  .contact-content {
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .contact-section .section-title {
+    font-size: 2.25rem;
+  }
+  
+  .contact-section .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .background-glow {
+    filter: blur(60px);
+  }
+  
+  .primary-glow {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .secondary-glow {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .accent-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  
+  .contact-section .section-title {
+    font-size: 2rem;
+  }
+  
+  .contact-section .section-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .contact-content {
+    margin-top: 2.5rem;
+  }
+}
+
+/* Enhanced grid layout for larger screens */
+@media (min-width: 1400px) {
+  .contact-container {
+    max-width: 1400px;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Smooth scrolling behavior */
+.contact-section {
+  scroll-margin-top: 2rem;
+}
+
+/* Loading state animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.loading {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Success message styles (if you add form submission feedback) */
+.contact-success {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(var(--color-secondary-rgb), 0.1);
+  border: 1px solid var(--color-secondary);
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.success-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: var(--color-foreground);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.success-submessage {
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,145 @@
+/* --- Shared styling for all project sections --- */
+
+.projects-section {
+  padding: clamp(2.5rem, 4vw, 4.5rem) 1.25rem;
+  position: relative;
+  isolation: isolate; /* make backdrop-filter safe */
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  background: color-mix(in oklab, var(--color-surface, rgba(255,255,255,0.02)) 70%, transparent);
+  backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid color-mix(in oklab, var(--color-primary, #6c5ce7) 25%, transparent);
+  border-radius: 20px;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Soft animated glows */
+.projects-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: clip;
+}
+
+.background-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+.primary-glow { width: 360px; height: 360px; top: -60px; left: -60px; }
+.secondary-glow { width: 420px; height: 420px; right: -80px; bottom: -80px; animation-delay: 1.2s; }
+.accent-glow { width: 300px; height: 300px; left: 50%; top: 55%; transform: translate(-50%,-50%); animation-delay: 2.4s; }
+
+@keyframes floatGlow {
+  0%   { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-18px) scale(1.05); }
+}
+
+/* Variants (you can tune colors here per category) */
+.variant-software .primary-glow  { background: var(--color-primary, #6c5ce7); }
+.variant-software .secondary-glow{ background: var(--color-secondary, #00d1b2); }
+.variant-software .accent-glow   { background: var(--color-accent, #ff8a00); }
+
+.variant-ai .primary-glow        { background: #7c3aed; }
+.variant-ai .secondary-glow      { background: #06b6d4; }
+.variant-ai .accent-glow         { background: #f59e0b; }
+
+.variant-ui .primary-glow        { background: #14b8a6; }
+.variant-ui .secondary-glow      { background: #22c55e; }
+.variant-ui .accent-glow         { background: #a855f7; }
+
+.variant-design .primary-glow    { background: #ef4444; }
+.variant-design .secondary-glow  { background: #f97316; }
+.variant-design .accent-glow     { background: #f43f5e; }
+
+.variant-video .primary-glow     { background: #8b5cf6; }
+.variant-video .secondary-glow   { background: #3b82f6; }
+.variant-video .accent-glow      { background: #06b6d4; }
+
+.variant-writing .primary-glow   { background: #22c55e; }
+.variant-writing .secondary-glow { background: #0ea5e9; }
+.variant-writing .accent-glow    { background: #f59e0b; }
+
+.variant-research .primary-glow  { background: #0ea5e9; }
+.variant-research .secondary-glow{ background: #22c55e; }
+.variant-research .accent-glow   { background: #2563eb; }
+
+/* Project grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 1.25rem;
+}
+
+.projects-grid > * {
+  grid-column: span 12;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 600ms ease forwards;
+}
+
+.projects-grid > *:nth-child(2) { animation-delay: 0.05s; }
+.projects-grid > *:nth-child(3) { animation-delay: 0.1s; }
+.projects-grid > *:nth-child(4) { animation-delay: 0.15s; }
+.projects-grid > *:nth-child(5) { animation-delay: 0.2s; }
+.projects-grid > *:nth-child(6) { animation-delay: 0.25s; }
+/* add more nth-child if needed */
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive column spans (assumes your ProjectCard is responsive) */
+@media (min-width: 640px) {
+  .projects-grid > * { grid-column: span 6; }
+}
+@media (min-width: 1024px) {
+  .projects-grid > * { grid-column: span 4; }
+}
+
+/* CTA */
+.projects-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 2vw, 2rem);
+}
+
+.cta-button {
+  --ring: color-mix(in oklab, var(--color-primary, #6c5ce7) 60%, #ffffff);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary, #6c5ce7), var(--color-secondary, #00d1b2));
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 0 0 0 var(--ring);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  filter: saturate(115%);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.3), 0 0 0 6px color-mix(in oklab, var(--ring) 20%, transparent);
+}
+
+.cta-icon {
+  width: 18px;
+  height: 18px;
+}
