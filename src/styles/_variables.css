@@ -52,6 +52,36 @@
 --color-glass-bg: rgba(255, 255, 255, 0.15);
   --color-border-light: rgba(0, 0, 0, 0.08);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+
+  /* Content Type Colors - Light Theme */
+ --color-youtube: #8EA1F8;
+--color-youtube-gradient: linear-gradient(135deg, #8EA1F8, #8093F0);
+--color-image: #36d1dc;
+--color-image-gradient: linear-gradient(135deg, #36d1dc, #5b86e5);
+
+--color-figma: #ffb347;
+--color-figma-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+
+--color-article: #43e97b;
+--color-article-gradient: linear-gradient(135deg, #43e97b, #38f9d7);
+
+--color-pdf: #ff758c;
+--color-pdf-gradient: linear-gradient(135deg, #ff758c, #ff7eb3);
+
+/* Animated Gradient Suggestions */
+--color-youtube-animated: linear-gradient(270deg, #ff5f6d, #ffc371, #ff5f6d);
+--color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
+--color-figma-animated: linear-gradient(270deg, #ffb347, #ffcc33, #ffb347);
+--color-article-animated: linear-gradient(270deg, #43e97b, #38f9d7, #43e97b);
+--color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
+
+--color-youtube-gradient: linear-gradient(135deg, #FF0000, #CC0000, #8A0000);
+  --color-image-gradient: linear-gradient(135deg, #4CAF50, #2E7D32, #1B5E20);
+  --color-figma-gradient: linear-gradient(135deg, #F24E1E, #A259FF, #1ABCFE);
+  --color-article-gradient: linear-gradient(135deg, #2196F3, #0D47A1, #1565C0);
+  --color-pdf-gradient: linear-gradient(135deg, #F44336, #B71C1C, #D32F2F);
+
 }
 
 .dark {
@@ -103,6 +133,39 @@
   --color-glass-bg: rgba(0, 0, 0, 0.2);
   --color-border-light: rgba(255, 255, 255, 0.1);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  /* Content Type Colors - Dark Theme */
+  --color-youtube: #8EA1F8;
+--color-youtube-gradient: linear-gradient(135deg, #8EA1F8, #73C8BF);
+
+--color-image: #36d1dc;
+--color-image-gradient: linear-gradient(135deg, #36d1dc, #5b86e5);
+
+--color-figma: #E0C072;
+--color-figma-gradient: linear-gradient(135deg, #ffa17f, #E0C072);
+
+--color-article: #43e97b;
+--color-article-gradient: linear-gradient(135deg, #43e97b, #00c9ff);
+
+--color-pdf: #ff758c;
+--color-pdf-gradient: linear-gradient(135deg, #ff758c, #ff7eb3);
+/* Animated Gradient Suggestions */
+--color-youtube-animated: linear-gradient(270deg, #ff6a88, #ff99ac, #ff6a88);
+--color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
+--color-figma-animated: linear-gradient(270deg, #ffa17f, #ff7e5f, #ffa17f);
+--color-article-animated: linear-gradient(270deg, #43e97b, #00c9ff, #43e97b);
+--color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
+  
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
 }
 
 /* Base styles */
