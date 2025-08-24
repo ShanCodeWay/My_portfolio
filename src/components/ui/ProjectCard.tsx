@@ -51,35 +51,32 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   };
 
   // Check what content types are available
-  const contentTypes: {type: ModalType, url: string}[] = [];
-  
-  if (project.links.demo) {
-    contentTypes.push({
-      type: detectContentType(project.links.demo),
-      url: project.links.demo
-    });
+const contentTypes: { type: ModalType, url: string }[] = [];
+
+if (project.links.demo) {
+  const type = detectContentType(project.links.demo);
+  // prevent duplicate article type if demo is also Medium
+  if (!(type === 'article' && project.links.article)) {
+    contentTypes.push({ type, url: project.links.demo });
   }
-  
-  if (project.links.prototype) {
-    contentTypes.push({
-      type: 'figma',
-      url: project.links.prototype
-    });
+}
+
+if (project.links.prototype) {
+  contentTypes.push({ type: 'figma', url: project.links.prototype });
+}
+
+if (project.links.article) {
+  contentTypes.push({ type: 'article', url: project.links.article });
+}
+
+if (project.links.documentation) {
+  const type = detectContentType(project.links.documentation);
+  // prevent duplicate article type here too
+  if (!(type === 'article' && project.links.article)) {
+    contentTypes.push({ type, url: project.links.documentation });
   }
-  
-  if (project.links.article) {
-    contentTypes.push({
-      type: 'article',
-      url: project.links.article
-    });
-  }
-  
-  if (project.links.documentation) {
-    contentTypes.push({
-      type: detectContentType(project.links.documentation),
-      url: project.links.documentation
-    });
-  }
+}
+
 
   return (
     <>
