@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import ProjectCard from '../ui/ProjectCard';
 import SectionTitle from '../ui/SectionTitle';
 
@@ -19,11 +19,11 @@ import SocialFlyer from '../ui/SocialFlyerCard';
 type MainCategory = 'all' | 'software' | 'ai' | 'ui' | 'design' | 'video' | 'writing' | 'research';
 type SubCategory = string;
 
-
 interface ProjectsSectionProps {
   title?: string;
   subtitle?: string;
   showCategoryFilter?: boolean;
+  projectsPerPage?: number;
 }
 
 // Define the category structure based on your table
@@ -58,54 +58,58 @@ const categoryStructure = {
   }
 };
 
-
 export default function ProjectsSection({ 
   title = "Featured Projects", 
   subtitle = "A showcase of my recent work and creative solutions",
-  showCategoryFilter = true
+  showCategoryFilter = true,
+  projectsPerPage = 9
 }: ProjectsSectionProps) {
-        const { 
-        activeMainCategory, 
-        setActiveMainCategory, 
-        activeSubCategory, 
-        setActiveSubCategory 
-        } = useCategory();
+  const { 
+    activeMainCategory, 
+    setActiveMainCategory, 
+    activeSubCategory, 
+    setActiveSubCategory 
+  } = useCategory();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
+  const [showSuggestions, setShowSuggestions] = useState(false);
+const [suggestions, setSuggestions] = useState<string[]>([]);
 
+  useEffect(() => {
+    console.log('[ProjectsSection] activeMainCategory changed:', activeMainCategory);
 
+    if (activeMainCategory !== 'all') {
+      setTimeout(() => {
+        const section = document.getElementById('projects');
+        if (section) {
+          console.log('[ProjectsSection] Scrolling to #projects');
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    }
+  }, [activeMainCategory]); 
 
-useEffect(() => {
-  console.log('[ProjectsSection] activeMainCategory changed:', activeMainCategory);
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    if (category) {
+      console.log('[ProjectsSection] Setting active category from URL:', category);
+      setActiveMainCategory(category as MainCategory);
+      setActiveSubCategory('all');
+    }
+  }, []); // run only once
 
-  if (activeMainCategory !== 'all') {
-    setTimeout(() => {
-      const section = document.getElementById('projects');
-      if (section) {
-        console.log('[ProjectsSection] Scrolling to #projects');
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 50);
-  }
-}, [activeMainCategory]); 
+  // Reset to page 1 when category or search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeMainCategory, activeSubCategory, searchQuery]);
 
-
-
-useEffect(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const category = urlParams.get('category');
-  if (category) {
-    console.log('[ProjectsSection] Setting active category from URL:', category);
-    setActiveMainCategory(category as MainCategory);
-    setActiveSubCategory('all');
-  }
-}, []); // run only once
-
- 
-
-
+  
   // Combine all projects with proper category mapping
-  const allProjects = [
+  const allProjects = useMemo(() => [
     ...projectsSoftware.map(p => ({ 
       ...p, 
       mainCategory: 'software' as MainCategory,
@@ -141,21 +145,57 @@ useEffect(() => {
       mainCategory: 'research' as MainCategory,
       subCategory: p.subCategory || 'Uncategorized'
     }))
-  ];
+  ], []);
 
- 
-
-const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
+  const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
 
 
-  // Filter projects by category
-  const filteredProjects = allProjects.filter(project => {
-    if (project.id === 'social-media-flyers') return false;
-    if (activeMainCategory === 'all') return true;
-    if (project.mainCategory !== activeMainCategory) return false;
-    if (activeSubCategory === 'all') return true;
-    return project.subCategory === activeSubCategory;
-  });
+  useEffect(() => {
+  if (searchQuery.length > 1) {
+    const uniqueTitles = Array.from(
+      new Set(
+        allProjects
+          .filter(project => 
+            project.title.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+          .map(project => project.title)
+      )
+    );
+    setSuggestions(uniqueTitles.slice(0, 5));
+    setShowSuggestions(true);
+  } else {
+    setSuggestions([]);
+    setShowSuggestions(false);
+  }
+}, [searchQuery, allProjects]);
+
+  // Filter projects by category and search query
+  const filteredProjects = useMemo(() => {
+    return allProjects.filter(project => {
+      // Skip flyer project for main grid
+      if (project.id === 'social-media-flyers') return false;
+      
+      // Apply search filter if active
+      if (searchQuery && !project.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+        return false;
+      }
+      
+      // Apply category filters
+      if (activeMainCategory === 'all') return true;
+      if (project.mainCategory !== activeMainCategory) return false;
+      if (activeSubCategory === 'all') return true;
+      return project.subCategory === activeSubCategory;
+    });
+  }, [allProjects, activeMainCategory, activeSubCategory, searchQuery]);
+
+  // Calculate pagination
+  const totalProjects = filteredProjects.length;
+  const totalPages = Math.ceil(totalProjects / projectsPerPage);
+  
+  // Get projects for current page
+  const startIndex = (currentPage - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const currentProjects = filteredProjects.slice(startIndex, endIndex);
 
   // Get subcategories for the active main category
   const activeSubCategories = activeMainCategory === 'all' 
@@ -163,7 +203,7 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
     : categoryStructure[activeMainCategory]?.subcategories || [];
 
   // Count projects for each main category
-  const mainCategoryCounts = {
+  const mainCategoryCounts = useMemo(() => ({
     all: allProjects.length,
     software: allProjects.filter(p => p.mainCategory === 'software').length,
     ai: allProjects.filter(p => p.mainCategory === 'ai').length,
@@ -172,7 +212,7 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
     video: allProjects.filter(p => p.mainCategory === 'video').length,
     writing: allProjects.filter(p => p.mainCategory === 'writing').length,
     research: allProjects.filter(p => p.mainCategory === 'research').length
-  };
+  }), [allProjects]);
 
   // Count projects for each subcategory
   const getSubCategoryCount = (subCat: string) => {
@@ -184,6 +224,152 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
   const handleMainCategoryChange = (category: MainCategory) => {
     setActiveMainCategory(category);
     setActiveSubCategory('all'); // Reset subcategory when main category changes
+    setSearchQuery(''); // Clear search when category changes
+    setIsSearchActive(false);
+  };
+
+const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const query = e.target.value;
+  setSearchQuery(query);
+  setIsSearchActive(query.length > 0);
+  
+  // If search is active, set category to 'all' to show results from all categories
+  if (query.length > 0 && activeMainCategory !== 'all') {
+    setActiveMainCategory('all');
+    setActiveSubCategory('all');
+  }
+};
+
+const handleSuggestionClick = (suggestion: string) => {
+  setSearchQuery(suggestion);
+  setIsSearchActive(true);
+  setShowSuggestions(false);
+  setActiveMainCategory('all');
+  setActiveSubCategory('all');
+};
+
+
+const handleInputBlur = () => {
+  setTimeout(() => {
+    setShowSuggestions(false);
+  }, 200);
+};
+
+
+const handleInputFocus = () => {
+  if (searchQuery.length > 1 && suggestions.length > 0) {
+    setShowSuggestions(true);
+  }
+};
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setIsSearchActive(false);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top of projects section
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const renderPagination = () => {
+    if (totalPages <= 1) return null;
+
+    const pages = [];
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    // Previous button
+    pages.push(
+      <button
+        key="prev"
+        className={`pagination-button ${currentPage === 1 ? 'disabled' : ''}`}
+        onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        aria-label="Previous page"
+      >
+        &laquo;
+      </button>
+    );
+
+    // First page
+    if (startPage > 1) {
+      pages.push(
+        <button
+          key={1}
+          className={`pagination-button ${1 === currentPage ? 'active' : ''}`}
+          onClick={() => handlePageChange(1)}
+        >
+          1
+        </button>
+      );
+      if (startPage > 2) {
+        pages.push(<span key="ellipsis1" className="pagination-ellipsis">...</span>);
+      }
+    }
+
+    // Page numbers
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          className={`pagination-button ${i === currentPage ? 'active' : ''}`}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    // Last page
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        pages.push(<span key="ellipsis2" className="pagination-ellipsis">...</span>);
+      }
+      pages.push(
+        <button
+          key={totalPages}
+          className={`pagination-button ${totalPages === currentPage ? 'active' : ''}`}
+          onClick={() => handlePageChange(totalPages)}
+        >
+          {totalPages}
+        </button>
+      );
+    }
+
+    // Next button
+    pages.push(
+      <button
+        key="next"
+        className={`pagination-button ${currentPage === totalPages ? 'disabled' : ''}`}
+        onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        aria-label="Next page"
+      >
+        &raquo;
+      </button>
+    );
+
+    return (
+      <div className="pagination-container">
+        <div className="pagination-info">
+          Showing {startIndex + 1}-{Math.min(endIndex, totalProjects)} of {totalProjects} projects
+          {searchQuery && ` for "${searchQuery}"`}
+        </div>
+        <div className="pagination-controls">
+          {pages}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -200,6 +386,43 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
           subtitle={subtitle}
         />
 
+        {/* Search Bar */}
+        <div className="search-container">
+  <div className="search-input-wrapper">
+    <input
+      type="text"
+      placeholder="Search projects by title..."
+      value={searchQuery}
+      onChange={handleSearchChange}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
+      className="search-input"
+    />
+    {searchQuery && (
+      <button
+        onClick={clearSearch}
+        className="search-clear-button"
+        aria-label="Clear search"
+      >
+        ×
+      </button>
+    )}
+    {showSuggestions && suggestions.length > 0 && (
+      <div className="search-suggestions">
+        {suggestions.map((suggestion, index) => (
+          <div
+            key={index}
+            className="search-suggestion"
+            onClick={() => handleSuggestionClick(suggestion)}
+          >
+            {suggestion}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
         {/* Category Filter */}
         {showCategoryFilter && (
           <div className="category-filter">
@@ -208,6 +431,7 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
               <button
                 className={`main-category-button ${activeMainCategory === 'all' ? 'active' : ''}`}
                 onClick={() => handleMainCategoryChange('all')}
+                disabled={isSearchActive}
               >
                 <span className="category-name">All Projects</span>
                 <span className="category-count">{mainCategoryCounts.all}</span>
@@ -218,6 +442,7 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
                   key={key}
                   className={`main-category-button ${activeMainCategory === key ? 'active' : ''}`}
                   onClick={() => handleMainCategoryChange(key as MainCategory)}
+                  disabled={isSearchActive}
                 >
                   <span className="category-name">{category.name}</span>
                   <span className="category-count">{mainCategoryCounts[key as MainCategory]}</span>
@@ -225,8 +450,8 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
               ))}
             </div>
 
-            {/* Subcategories (only show when a main category is selected) */}
-            {activeMainCategory !== 'all' && activeSubCategories.length > 0 && (
+            {/* Subcategories (only show when a main category is selected and search is not active) */}
+            {activeMainCategory !== 'all' && activeSubCategories.length > 0 && !isSearchActive && (
               <div className="subcategory-filter">
                 <div className="subcategory-buttons">
                   <button
@@ -257,14 +482,16 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <ProjectCard 
-              key={`${project.mainCategory}-${project.subCategory}-${index}`}
+              key={`${project.mainCategory}-${project.subCategory}-${index}-${project.id}`}
               project={project}
               index={index}
             />
           ))}
-         {flyerProject && (
+          
+          {/* Social Flyer - only show when not searching and in appropriate categories */}
+          {flyerProject && !isSearchActive && (
             (activeMainCategory === 'all' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design')) ||
             (activeMainCategory === 'design' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design'))
           ) && (
@@ -279,19 +506,21 @@ const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
               date={flyerProject.metadata?.date}
             />
           )}
-
-
-
-
-
-
         </div>
+
+        {/* Pagination */}
+        {renderPagination()}
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
           <div className="empty-state">
             <h3>No projects found</h3>
-            <p>There are no projects in this category yet.</p>
+            <p>
+              {searchQuery 
+                ? `No projects found for "${searchQuery}". Try a different search term.`
+                : 'There are no projects in this category yet.'
+              }
+            </p>
           </div>
         )}
         
