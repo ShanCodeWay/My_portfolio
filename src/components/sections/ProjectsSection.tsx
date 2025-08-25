@@ -13,6 +13,8 @@ import { projectsResearch } from '@/data/projectsResearch';
 import { useCategoryState } from '@/hooks/useCategoryState';
 import { useCategory } from '../contexts/CategoryContext';
 
+import SocialFlyer from '../ui/SocialFlyerCard';
+
 // Define category types
 type MainCategory = 'all' | 'software' | 'ai' | 'ui' | 'design' | 'video' | 'writing' | 'research';
 type SubCategory = string;
@@ -36,11 +38,11 @@ const categoryStructure = {
   },
   ui: {
     name: 'UI/UX & Design',
-    subcategories: ['UX/UI Design', 'Graphic Design', 'Motion & Typography']
+    subcategories: ['UX/UI Design',  'Motion & Typography']
   },
   design: {
     name: 'Multimedia & Creative Work',
-    subcategories: ['Video Editing', 'Motion Graphics', '3D Modeling / Animation', '2D Animation']
+    subcategories: ['Video Editing','Graphic Design', 'Motion Graphics', '3D Modeling / Animation', '2D Animation']
   },
   video: { 
     name: 'Video Projects',
@@ -143,10 +145,12 @@ useEffect(() => {
 
  
 
+const flyerProject = allProjects.find(p => p.id === 'social-media-flyers');
 
 
   // Filter projects by category
   const filteredProjects = allProjects.filter(project => {
+    if (project.id === 'social-media-flyers') return false;
     if (activeMainCategory === 'all') return true;
     if (project.mainCategory !== activeMainCategory) return false;
     if (activeSubCategory === 'all') return true;
@@ -260,6 +264,27 @@ useEffect(() => {
               index={index}
             />
           ))}
+         {flyerProject && (
+            (activeMainCategory === 'all' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design')) ||
+            (activeMainCategory === 'design' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design'))
+          ) && (
+            <SocialFlyer
+              title={flyerProject.title}
+              description={flyerProject.description}
+              imageUrl={flyerProject.metadata?.alt || "/default-flyer.png"}
+              tags={flyerProject.tags}
+              ctaText="Go to page"
+              ctaLink={flyerProject.links?.demo || flyerProject.links?.github || "#"}
+              author={flyerProject.metadata?.author}
+              date={flyerProject.metadata?.date}
+            />
+          )}
+
+
+
+
+
+
         </div>
 
         {/* Empty State */}

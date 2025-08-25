@@ -144,6 +144,8 @@ if (project.links.documentation) {
                 {tag}
               </span>
             ))}
+
+      
           </div>
           
           <div className="project-actions">
@@ -175,6 +177,37 @@ if (project.links.documentation) {
                 </svg>
               </a>
             )}
+
+                <button
+                  className="project-action-btn share-action"
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({
+                        title: project.title,
+                        text: project.description,
+                        url: window.location.href,
+                      }).catch((err) => console.error('Share failed:', err));
+                    } else {
+                      navigator.clipboard.writeText(window.location.href);
+                      alert('Link copied to clipboard!');
+                    }
+                  }}
+                  style={{ animationDelay: `${0.3 + (contentTypes.length + 1) * 0.1}s` }}
+                >
+                  <span className="content-type-text">Share</span>
+                  <span className="content-type-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="18" cy="5" r="3" stroke="currentColor" strokeWidth="2"/>
+                      <circle cx="6" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                      <circle cx="18" cy="19" r="3" stroke="currentColor" strokeWidth="2"/>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <line x1="8.59" y1="10.49" x2="15.42" y2="6.51" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                </button>
+
+
+
           </div>
         </div>
       </div>

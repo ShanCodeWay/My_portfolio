@@ -82,6 +82,8 @@
   --color-article-gradient: linear-gradient(135deg, #2196F3, #0D47A1, #1565C0);
   --color-pdf-gradient: linear-gradient(135deg, #F44336, #B71C1C, #D32F2F);
 
+  --color-share-bg: linear-gradient(135deg, #4f7db3, #4f4db6, #104a79);
+
 }
 
 .dark {
@@ -155,6 +157,8 @@
 --color-figma-animated: linear-gradient(270deg, #ffa17f, #ff7e5f, #ffa17f);
 --color-article-animated: linear-gradient(270deg, #43e97b, #00c9ff, #43e97b);
 --color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
+
+--color-share-bg: linear-gradient(135deg, #6c63ff, #3b3fcf, #1b1f7f);
   
 }
 @keyframes gradientShift {

@@ -14,6 +14,42 @@
   height: 100%;
 }
 
+
+
+.project-action-btn.share-action {
+  flex: 1 1 auto;          /* match other buttons */
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  background: var(--color-share-bg);
+  color: var(--color-share-text);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.project-action-btn.share-action .content-type-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.project-action-btn.share-action:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.project-action-btn.share-action .content-type-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.project-action-btn.share-action:hover .content-type-icon {
+  transform: translateX(3px);
+}
+
+
 .project-card.scroll-animate {
   opacity: 1;
   transform: translateY(0);
@@ -220,26 +256,26 @@
 .project-actions {
   display: flex;
   gap: 0.75rem;
-  align-items: stretch;
-  min-height: 44px;
+  flex-wrap: wrap;       
+  align-items: center;   
+  justify-content: flex-start; 
 }
 
 .project-action-btn {
-  flex: 1;
-  padding: 0.75rem 1.5rem;
+  flex: 1 1 auto;          /* grow/shrink equally */
+  min-width: 120px;        /* ensure buttons aren’t too small */
+  padding: 0.65rem 1rem;   /* consistent padding */
   border-radius: 50px;
   font-weight: 600;
   text-align: center;
-  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-width: 0;
   white-space: nowrap;
-  transform: translateY(5px);
-  opacity: 0;
+  transition: all 0.3s ease;
 }
+
 
 .project-action-btn:hover {
   transform: translateY(-2px);
@@ -529,4 +565,6 @@
     transform: translateY(0);
     opacity: 1;
   }
+
+
 }

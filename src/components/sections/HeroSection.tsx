@@ -86,22 +86,32 @@ export default function HeroSection(): React.JSX.Element {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* LEFT: Avatar + socials + skills */}
               <div className="flex flex-col items-center md:items-start gap-6">
-                <div className="avatarCard glow-effect">
-                <motion.div
-                    className="absolute inset-0"
-                    animate={{ rotate: [0, 3, 0, -3, 0] }}
-                    transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-                >
-                    <Image
-                    src="/images/profile/avatar.png"
-                    alt="Darshana Wijebahu"
-                    fill
-                    sizes="(max-width: 768px) 300px, 280px"  
-                    className="object-cover rounded-full"
-                    />
-                </motion.div>
-                <div className="avatarHalo glow-halo"></div>  {/* Added glow-halo class */}
-                </div>
+
+
+            <div className="avatarCard glow-effect">
+              <motion.div
+                className="absolute inset-0 z-0"
+                animate={{ rotate: [0, 3, 0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/images/profile/avatar.png"
+                  alt="Darshana Wijebahu"
+                  fill
+                  sizes="(max-width: 768px) 300px, 280px"  
+                  className="object-cover rounded-full"
+                />
+              </motion.div>
+
+              {/* Shine overlay DIV */}
+              <div className="shineOverlay"></div>
+
+              {/* Existing halo */}
+              <div className="avatarHalo glow-halo"></div>
+            </div>
+
+
+
 
                 {/* Socials */}
                 <div className="flex gap-3 items-center">
