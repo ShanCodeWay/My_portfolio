@@ -380,16 +380,303 @@
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-/* Mobile responsive for suggestions */
-@media (max-width: 768px) {
-  .search-suggestions {
-    max-height: 150px;
+/* Add these styles to your existing CSS file */
+
+/* Horizontal category layout */
+.category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.main-category-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
+}
+
+.main-category-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.main-category-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.main-category-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.subcategory-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Search and filters in a row on desktop */
+.search-and-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .search-and-filters {
+    flex-direction: row;
+    align-items: flex-start;
   }
   
-  .search-suggestion {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+  .search-container {
+    flex: 1;
+    margin-bottom: 0;
   }
+  
+  .category-filter {
+    flex: 2;
+    margin-bottom: 0;
+  }
+}
+
+/* Improved grid responsiveness */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Pagination improvements */
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .pagination-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Compact category buttons for mobile */
+/* Compact category buttons for mobile */
+/* Mobile Compact Buttons Fix */
+@media (max-width: 640px) {
+  /* Horizontal scroll for categories */
+  .main-category-buttons,
+  .subcategory-buttons {
+    display: flex;
+    flex-wrap: nowrap;               /* keep buttons in a row */
+    overflow-x: auto;                /* allow scrolling if too wide */
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  /* Buttons auto-size to content */
+  .main-category-button,
+  .subcategory-button {
+    flex: 0 0 auto;                  /* don’t shrink below content */
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 0;                     /* allow content to define width */
+    white-space: normal;              /* allow text to wrap */
+    word-break: break-word;           /* break long words */
+    text-align: center;
+  }
+
+  /* Category/Subcategory names wrap inside button */
+  .category-name,
+  .subcategory-name {
+    font-size: 0.75rem;
+    line-height: 1.1rem;
+    display: block;
+  }
+
+  /* Count badges */
+  .category-count,
+  .subcategory-count {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    display: inline-block;
+  }
+}
+
+
+
+
+
+/* Stack elements vertically on mobile */
+.filter-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .filter-stack {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mobile: turn into horizontal swipe */
+@media (max-width: 768px) {
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem;
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for clean swipe */
+  }
+
+  .projects-grid > * {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+}
+
+/* Mobile responsive for suggestions */
+/* Compact category buttons for mobile */
+@media (max-width: 640px) {
+  /* Container allows horizontal scroll if buttons overflow */
+  .main-category-buttons,
+  .subcategory-buttons {
+    display: flex;
+    flex-wrap: nowrap;               /* keep in one row */
+    overflow-x: auto;                /* scroll horizontally */
+    -webkit-overflow-scrolling: touch;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;           /* hide scrollbar Firefox */
+    -ms-overflow-style: none;        /* hide scrollbar IE/Edge */
+  }
+
+  .main-category-buttons::-webkit-scrollbar,
+  .subcategory-buttons::-webkit-scrollbar {
+    display: none;                   /* hide scrollbar Chrome/Safari */
+  }
+
+  /* Make buttons auto-size to content and wrap text if needed */
+  .main-category-button,
+  .subcategory-button {
+    flex: 0 0 auto;                  /* don't shrink */
+    padding: 0.5rem 0.8rem;          /* slightly increased padding */
+    font-size: 0.75rem;
+    min-width: 0;                    /* allow flex shrink */
+    white-space: nowrap;             /* keep text in single line */
+    text-align: center;
+    max-width: 140px;                /* limit maximum width */
+    overflow: hidden;
+    text-overflow: ellipsis;         /* add ellipsis if text too long */
+  }
+
+  /* Category name wraps inside button */
+  .category-name,
+  .subcategory-name {
+    font-size: 0.75rem;
+    line-height: 1.1rem;             /* compact spacing */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Count badge inside button */
+  .category-count,
+  .subcategory-count {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    display: inline-block;
+    flex-shrink: 0;                  /* prevent badge from shrinking */
+  }
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  background: var(--color-bg);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sort-controls label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  outline: none;
+  backdrop-filter: blur(10px);
+}
+
+.sort-select:hover {
+  background: var(--color-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.sort-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0,196,255,0.3);
 }
 
 /* Pagination Styles */

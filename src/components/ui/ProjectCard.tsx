@@ -88,8 +88,17 @@ if (project.links.documentation) {
       >
         <div className="project-image-container overflow-hidden rounded-xl relative">
           <div className="project-image-placeholder">
-            [Project Screenshot]
-          </div>
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} screenshot`} 
+                    className="project-image"
+                  />
+                ) : (
+                  <span>[Project Screenshot]</span>
+                )}
+              </div>
+
           <div className="project-overlay">
             <div className="project-overlay-content">
               <h3 className="project-title-overlay">{project.title}</h3>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import SocialLink from './SocialLink';
 import './_footerStyles.css';

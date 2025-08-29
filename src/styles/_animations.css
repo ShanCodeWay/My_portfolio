@@ -75,3 +75,15 @@
   );
   z-index: -1;
 }
+
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+
+.scroll-animate.animate {
+  animation: fadeIn 1s ease-out forwards;
+}

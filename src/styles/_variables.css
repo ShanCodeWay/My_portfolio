@@ -1,166 +1,193 @@
 :root {
-  /* Light Theme Colors */
+  /* Light Theme */
   --color-background: #f5f7fa;
   --color-foreground: #1f2937;
+
+  /* Brand Colors */
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #93c5fd;
   --color-primary: #6366f1;
   --color-primary-hover: #4f46e5;
   --color-secondary: #14b8a6;
   --color-secondary-hover: #0d9488;
   --color-accent: #f59e0b;
-  --color-card-bg: #ffffff;
-  --color-card-border: #e5e7eb;
-  --color-text-muted: #6b7280;
-  --color-header-bg: rgba(255, 255, 255, 0.8);
-  --color-footer-bg: #ffffff;
-  --color-border: #e5e7eb;
-  --color-hover: rgba(79, 70, 229, 0.1);
-  
-  /* RGB values for opacity manipulation */
-  --color-primary-rgb: 99, 102, 241;
-  --color-secondary-rgb: 20, 184, 166;
-  --color-accent-rgb: 245, 158, 11;
-  --color-card-bg-rgb: 255, 255, 255;
-  --color-card-border-rgb: 229, 231, 235;
-  
-  /* Font */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-brand-start: #6366f1; /* indigo-500 */
-  --color-brand-mid:   #8b5cf6; /* violet-500 */
-  --color-brand-end:   #ec4899; /* pink-500 */
 
-  --color-text: #1e293b;        /* normal text */
-  --color-text-muted: #64748b;  /* muted text */
-  --color-text-inverse: #ffffff; /* text on primary/dark backgrounds */
-
-  /* Primary brand */
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
+  /* Text */
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
 
   /* Backgrounds */
-  --color-header-bg: rgba(255, 255, 255, 0.7);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
   --color-card-bg: #ffffff;
   --color-card-border: #e2e8f0;
+  --color-header-bg: rgba(255, 255, 255, 0.7);
+  --color-footer-bg: #ffffff;
   --color-hover: rgba(99, 102, 241, 0.1);
 
-  /* Shadows */
+  /* Borders & Shadows */
+  --border-color: #e5e7eb;
+  --color-border-light: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
   --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
                  0 10px 10px -5px rgba(0, 0, 0, 0.1);
   --shadow-btn: 0 5px 15px rgba(99, 102, 241, 0.2);
   --shadow-btn-hover: 0 10px 25px rgba(99, 102, 241, 0.4);
   --shadow-profile-hover: 0 10px 30px rgba(99, 102, 241, 0.3);
-
---color-glass-bg: rgba(255, 255, 255, 0.15);
-  --color-border-light: rgba(0, 0, 0, 0.08);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
 
+  /* Special Effects */
+  --color-glass-bg: rgba(255, 255, 255, 0.15);
 
-  /* Content Type Colors - Light Theme */
- --color-youtube: #8EA1F8;
---color-youtube-gradient: linear-gradient(135deg, #8EA1F8, #8093F0);
---color-image: #36d1dc;
---color-image-gradient: linear-gradient(135deg, #36d1dc, #5b86e5);
+  /* Gradients & Brand */
+  --color-brand-start: #6366f1;
+  --color-brand-mid:   #8b5cf6;
+  --color-brand-end:   #ec4899;
 
---color-figma: #ffb347;
---color-figma-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
-
---color-article: #43e97b;
---color-article-gradient: linear-gradient(135deg, #43e97b, #38f9d7);
-
---color-pdf: #ff758c;
---color-pdf-gradient: linear-gradient(135deg, #ff758c, #ff7eb3);
-
-/* Animated Gradient Suggestions */
---color-youtube-animated: linear-gradient(270deg, #ff5f6d, #ffc371, #ff5f6d);
---color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
---color-figma-animated: linear-gradient(270deg, #ffb347, #ffcc33, #ffb347);
---color-article-animated: linear-gradient(270deg, #43e97b, #38f9d7, #43e97b);
---color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
-
---color-youtube-gradient: linear-gradient(135deg, #FF0000, #CC0000, #8A0000);
+  /* Content Type Colors */
+  --color-youtube: #8EA1F8;
+  --color-youtube-gradient: linear-gradient(135deg, #FF0000, #CC0000, #8A0000);
+  --color-image: #36d1dc;
   --color-image-gradient: linear-gradient(135deg, #4CAF50, #2E7D32, #1B5E20);
+  --color-figma: #ffb347;
   --color-figma-gradient: linear-gradient(135deg, #F24E1E, #A259FF, #1ABCFE);
+  --color-article: #43e97b;
   --color-article-gradient: linear-gradient(135deg, #2196F3, #0D47A1, #1565C0);
+  --color-pdf: #ff758c;
   --color-pdf-gradient: linear-gradient(135deg, #F44336, #B71C1C, #D32F2F);
-
   --color-share-bg: linear-gradient(135deg, #4f7db3, #4f4db6, #104a79);
 
+  /* Animated Gradients */
+  --color-youtube-animated: linear-gradient(270deg, #ff5f6d, #ffc371, #ff5f6d);
+  --color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
+  --color-figma-animated: linear-gradient(270deg, #ffb347, #ffcc33, #ffb347);
+  --color-article-animated: linear-gradient(270deg, #43e97b, #38f9d7, #43e97b);
+  --color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
+
+  /* Utility */
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+
+  /* Sizes */
+  --icon-size: 80px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Font */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+   --color-glass-bg: rgba(255, 255, 255, 0.6);   /* Light mode */
+  --color-border-light: rgba(255, 255, 255, 0.2);
+
+  /* Brand Gradient */
+  --color-brand-start: #2563eb;  /* Blue */
+  --color-brand-mid: #4f46e5;    /* Indigo */
+  --color-brand-end: #9333ea;    /* Purple */
+
+  /* Foreground / Text */
+  --color-foreground: #0f172a;
+  --color-primary: #2563eb;
+  --color-hover: rgba(99, 102, 241, 0.08);
 }
 
 .dark {
-  /* Dark Theme Colors */
+  /* Dark Theme */
   --color-background: #0f172a;
   --color-foreground: #f1f5f9;
+
+  /* Brand */
+  --primary-color: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --primary-light: #a78bfa;
   --color-primary: #8b5cf6;
   --color-primary-hover: #7c3aed;
   --color-secondary: #2dd4bf;
   --color-secondary-hover: #14b8a6;
   --color-accent: #facc15;
-  --color-card-bg: #1e293b;
-  --color-card-border: #334155;
-  --color-text-muted: #94a3b8;
-  --color-header-bg: rgba(15, 23, 42, 0.8);
-  --color-footer-bg: #0f172a;
-  --color-border: #334155;
-  --color-hover: rgba(139, 92, 246, 0.2);
-  
-  /* RGB values for opacity manipulation */
-  --color-primary-rgb: 139, 92, 246;
-  --color-secondary-rgb: 45, 212, 191;
-  --color-accent-rgb: 250, 204, 21;
-  --color-card-bg-rgb: 30, 41, 59;
-  --color-card-border-rgb: 51, 65, 85;
-  
-  --color-brand-start: #a78bfa; /* violet-300 */
-  --color-brand-mid:   #c084fc; /* violet-300/200 */
-  --color-brand-end:   #f472b6; /* pink-400 */
 
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
   --color-text: #f1f5f9;
   --color-text-muted: #94a3b8;
-  --color-text-inverse: #0f172a; /* inverse for light-on-dark */
+  --color-text-inverse: #0f172a;
 
-  --color-primary: #8b5cf6;
-  --color-primary-hover: #7c3aed;
-
-  --color-header-bg: rgba(15, 23, 42, 0.7);
+  /* Backgrounds */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
   --color-card-bg: #1e293b;
   --color-card-border: #334155;
+  --color-header-bg: rgba(15, 23, 42, 0.7);
+  --color-footer-bg: #0f172a;
   --color-hover: rgba(139, 92, 246, 0.1);
 
+  /* Borders & Shadows */
+  --border-color: #334155;
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --shadow-hover: rgba(0, 0, 0, 0.3);
   --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.25),
                  0 10px 10px -5px rgba(0, 0, 0, 0.15);
   --shadow-btn: 0 5px 15px rgba(139, 92, 246, 0.2);
   --shadow-btn-hover: 0 10px 25px rgba(139, 92, 246, 0.4);
   --shadow-profile-hover: 0 10px 30px rgba(139, 92, 246, 0.3);
-
-  --color-glass-bg: rgba(0, 0, 0, 0.2);
-  --color-border-light: rgba(255, 255, 255, 0.1);
   --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.3);
 
-  /* Content Type Colors - Dark Theme */
+  /* Special Effects */
+  --color-glass-bg: rgba(0, 0, 0, 0.2);
+
+  /* Gradients & Brand */
+  --color-brand-start: #a78bfa;
+  --color-brand-mid:   #c084fc;
+  --color-brand-end:   #f472b6;
+
+  /* Content Type Colors */
   --color-youtube: #8EA1F8;
---color-youtube-gradient: linear-gradient(135deg, #8EA1F8, #73C8BF);
+  --color-youtube-gradient: linear-gradient(135deg, #8EA1F8, #73C8BF);
+  --color-image: #36d1dc;
+  --color-image-gradient: linear-gradient(135deg, #36d1dc, #5b86e5);
+  --color-figma: #E0C072;
+  --color-figma-gradient: linear-gradient(135deg, #ffa17f, #E0C072);
+  --color-article: #43e97b;
+  --color-article-gradient: linear-gradient(135deg, #43e97b, #00c9ff);
+  --color-pdf: #ff758c;
+  --color-pdf-gradient: linear-gradient(135deg, #ff758c, #ff7eb3);
+  --color-share-bg: linear-gradient(135deg, #6c63ff, #3b3fcf, #1b1f7f);
 
---color-image: #36d1dc;
---color-image-gradient: linear-gradient(135deg, #36d1dc, #5b86e5);
+  /* Animated Gradients */
+  --color-youtube-animated: linear-gradient(270deg, #ff6a88, #ff99ac, #ff6a88);
+  --color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
+  --color-figma-animated: linear-gradient(270deg, #ffa17f, #ff7e5f, #ffa17f);
+  --color-article-animated: linear-gradient(270deg, #43e97b, #00c9ff, #43e97b);
+  --color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
 
---color-figma: #E0C072;
---color-figma-gradient: linear-gradient(135deg, #ffa17f, #E0C072);
+  --color-glass-bg: rgba(15, 23, 42, 0.55);    /* Dark mode */
+  --color-border-light: rgba(255, 255, 255, 0.08);
 
---color-article: #43e97b;
---color-article-gradient: linear-gradient(135deg, #43e97b, #00c9ff);
+  --color-foreground: #f1f5f9;
+  --color-primary: #60a5fa;
+  --color-hover: rgba(96, 165, 250, 0.12);
 
---color-pdf: #ff758c;
---color-pdf-gradient: linear-gradient(135deg, #ff758c, #ff7eb3);
-/* Animated Gradient Suggestions */
---color-youtube-animated: linear-gradient(270deg, #ff6a88, #ff99ac, #ff6a88);
---color-image-animated: linear-gradient(270deg, #36d1dc, #5b86e5, #36d1dc);
---color-figma-animated: linear-gradient(270deg, #ffa17f, #ff7e5f, #ffa17f);
---color-article-animated: linear-gradient(270deg, #43e97b, #00c9ff, #43e97b);
---color-pdf-animated: linear-gradient(270deg, #ff758c, #ff7eb3, #ff758c);
 
---color-share-bg: linear-gradient(135deg, #6c63ff, #3b3fcf, #1b1f7f);
-  
 }
+
+
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

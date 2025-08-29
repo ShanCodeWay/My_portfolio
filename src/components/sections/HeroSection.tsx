@@ -66,7 +66,8 @@ export default function HeroSection(): React.JSX.Element {
 
 
   return (
-    <section className={`hero ${theme} pb-24 md:pb-32`}>
+  
+    <section id="home"  className={`hero ${theme} pb-24 md:pb-32 scroll-animate`}>
       {/* Background elements */}
       <div className="heroGrid"></div>
       <div className="absolute inset-0 bg-[var(--hero-glow)] opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
@@ -154,7 +155,7 @@ export default function HeroSection(): React.JSX.Element {
                     <button
                       aria-pressed={theme === 'dark'}
                       onClick={toggleTheme}
-                      className="p-2 rounded-full bg-[var(--hero-social-bg)] border border-[var(--hero-social-border)] hover:scale-105 transition focus:outline-none focus:ring-4"
+                      className="p-2 rounded-full bg-[var(--hero-social-bg)]  hover:scale-105 transition focus:outline-none focus:ring-4"
                       title="Toggle theme"
                     >
                       {theme === 'dark' ? (
@@ -202,7 +203,7 @@ export default function HeroSection(): React.JSX.Element {
 
                 {/* CTA buttons */}
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <Link href="#projects" className="primaryButton">
+                  <Link href="/#projects" className="primaryButton">
   <span>View Projects</span>
 </Link>
 

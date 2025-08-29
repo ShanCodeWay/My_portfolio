@@ -12,11 +12,12 @@ export const projectsSoftware: Project[] = [
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2025-10-04",
       alt: "PhishGuard phishing detection demo",
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
+    priority: 2,
   },
   {
     id: "electratrack",
@@ -34,6 +35,9 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Desktop Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/electratrack.png",
+    priority: 1,
+    
   },
   {
     id: "eventify",

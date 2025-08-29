@@ -18,4 +18,6 @@ export interface Project {
   };
   subCategory?: string;
   mainCategory: string;
+  image?: string;
+  priority?: number;
 }

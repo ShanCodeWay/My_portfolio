@@ -34,11 +34,13 @@ export default function Header() {
         
         <nav className="desktop-nav">
           <ul className="nav-links">
-            <li><a href="#home" className="nav-link">Home</a></li>
-            <li><a href="#projects" className="nav-link">Projects</a></li>
-            <li><a href="#about" className="nav-link">About</a></li>
-            <li><a href="#contact" className="nav-link">Contact</a></li>
-          </ul>
+          <li><a href="/" className="nav-link">Home</a></li>
+          <li><a href="/#projects" className="nav-link">Projects</a></li>
+          <li><a href="/#about" className="nav-link">About</a></li>
+          <li><a href="/#contact" className="nav-link">Contact</a></li>
+          <li><a href="/cv" className="nav-link">CV</a></li> 
+        </ul>
+
           <button 
             className="theme-toggle-btn"
             onClick={toggleTheme}
@@ -88,11 +90,14 @@ export default function Header() {
 
       <div className={`mobile-menu ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         <ul className="mobile-nav-links">
-          <li><a href="#home" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
-          <li><a href="#projects" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</a></li>
-          <li><a href="#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</a></li>
-          <li><a href="#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
-        </ul>
+        <li><a href="/" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
+        <li><a href="/#projects" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</a></li>
+        <li><a href="/#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</a></li>
+        <li><a href="/#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
+        <li><a href="/cv" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>CV</a></li> 
+      </ul>
+
+
         <div className="mobile-theme-toggle">
           <button 
             className="theme-toggle-btn"

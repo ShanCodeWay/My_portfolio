@@ -77,6 +77,8 @@ export default function ProjectsSection({
 
   const [showSuggestions, setShowSuggestions] = useState(false);
 const [suggestions, setSuggestions] = useState<string[]>([]);
+const [sortOption, setSortOption] = useState<'featured' | 'newest'>('featured');
+
 
   useEffect(() => {
     console.log('[ProjectsSection] activeMainCategory changed:', activeMainCategory);
@@ -170,23 +172,58 @@ const [suggestions, setSuggestions] = useState<string[]>([]);
 }, [searchQuery, allProjects]);
 
   // Filter projects by category and search query
-  const filteredProjects = useMemo(() => {
-    return allProjects.filter(project => {
-      // Skip flyer project for main grid
-      if (project.id === 'social-media-flyers') return false;
-      
-      // Apply search filter if active
-      if (searchQuery && !project.title.toLowerCase().includes(searchQuery.toLowerCase())) {
-        return false;
-      }
-      
-      // Apply category filters
-      if (activeMainCategory === 'all') return true;
-      if (project.mainCategory !== activeMainCategory) return false;
-      if (activeSubCategory === 'all') return true;
-      return project.subCategory === activeSubCategory;
+const filteredProjects = useMemo(() => {
+  // 1) basic filtering
+  let results = allProjects.filter(project => {
+    // search
+    if (searchQuery && !project.title.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return false;
+    }
+
+    // main category
+    if (activeMainCategory !== 'all' && project.mainCategory !== activeMainCategory) {
+      return false;
+    }
+
+    // subcategory
+    if (activeSubCategory !== 'all' && project.subCategory !== activeSubCategory) {
+      return false;
+    }
+
+    return true;
+  });
+
+  // helpers for safe comparisons
+  const safeDate = (p: typeof allProjects[number]) => Date.parse(p?.metadata?.date ?? '') || 0;
+  const safePriority = (p: typeof allProjects[number]) =>
+    (typeof p.priority === 'number' ? p.priority : Infinity);
+
+  // 2) sorting
+  if (sortOption === 'newest') {
+    // newest first, then lower priority (higher importance) as secondary
+    results = [...results].sort((a, b) => {
+      const dateA = safeDate(a);
+      const dateB = safeDate(b);
+      if (dateB !== dateA) return dateB - dateA;
+      return safePriority(a) - safePriority(b);
     });
-  }, [allProjects, activeMainCategory, activeSubCategory, searchQuery]);
+  } else {
+    // featured (priority) first: lower number = higher priority
+    // tie-breaker: newest first
+    results = [...results].sort((a, b) => {
+      const prA = safePriority(a);
+      const prB = safePriority(b);
+      if (prA !== prB) return prA - prB;
+      const dateA = safeDate(a);
+      const dateB = safeDate(b);
+      return dateB - dateA;
+    });
+  }
+
+  return results;
+}, [allProjects, activeMainCategory, activeSubCategory, searchQuery, sortOption]);
+
+
 
   // Calculate pagination
   const totalProjects = filteredProjects.length;
@@ -221,12 +258,14 @@ const [suggestions, setSuggestions] = useState<string[]>([]);
     ).length;
   };
 
-  const handleMainCategoryChange = (category: MainCategory) => {
-    setActiveMainCategory(category);
-    setActiveSubCategory('all'); // Reset subcategory when main category changes
-    setSearchQuery(''); // Clear search when category changes
-    setIsSearchActive(false);
-  };
+const handleMainCategoryChange = (category: MainCategory) => {
+  setActiveMainCategory(category);
+  setActiveSubCategory('all'); 
+  setSearchQuery('');          
+  setCurrentPage(1);           
+  setIsSearchActive(false);
+};
+
 
 const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const query = e.target.value;
@@ -373,7 +412,7 @@ const handleInputFocus = () => {
   };
 
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className="projects-section scroll-animate">
       <div className="projects-background">
         <div className="background-glow primary-glow"></div>
         <div className="background-glow secondary-glow"></div>
@@ -385,7 +424,7 @@ const handleInputFocus = () => {
           title={title}
           subtitle={subtitle}
         />
-
+ <div className="search-and-filters"> 
         {/* Search Bar */}
         <div className="search-container">
   <div className="search-input-wrapper">
@@ -421,6 +460,20 @@ const handleInputFocus = () => {
       </div>
     )}
   </div>
+</div>
+
+                <div className="sort-controls">
+                <label htmlFor="sort">Sort by: </label>
+                <select
+                  id="sort"
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value as 'featured' | 'newest')}
+                  className="sort-select"
+                >
+                  <option value="featured">Featured Priority</option>
+                  <option value="newest">Newest First</option>
+                </select>
+              </div>
 </div>
 
         {/* Category Filter */}
@@ -491,7 +544,7 @@ const handleInputFocus = () => {
           ))}
           
           {/* Social Flyer - only show when not searching and in appropriate categories */}
-          {flyerProject && !isSearchActive && (
+          {/* {flyerProject && !isSearchActive && (
             (activeMainCategory === 'all' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design')) ||
             (activeMainCategory === 'design' && (activeSubCategory === 'all' || activeSubCategory === 'Graphic Design'))
           ) && (
@@ -505,7 +558,7 @@ const handleInputFocus = () => {
               author={flyerProject.metadata?.author}
               date={flyerProject.metadata?.date}
             />
-          )}
+          )} */}
         </div>
 
         {/* Pagination */}

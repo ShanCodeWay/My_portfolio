@@ -10,9 +10,11 @@ interface NavigationProps {
 
 export default function Navigation({ theme, toggleTheme }: NavigationProps) {
   const navItems = [
+    { href: '/ ', label: 'Home' },
     { href: '#projects', label: 'Projects' },
     { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' }
+    { href: '#contact', label: 'Contact' },
+    { href: '/cv', label: 'CV' }
   ];
 
   return (

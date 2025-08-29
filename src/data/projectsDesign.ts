@@ -15,6 +15,6 @@ export const projectsDesign: Project[] = [
       alt: "Collection of social media flyer designs",
     },
     subCategory: "Graphic Design",
-    mainCategory: "Design",
+    mainCategory: "design",
   },
 ];
