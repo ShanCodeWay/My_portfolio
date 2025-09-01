@@ -199,6 +199,19 @@
   display: block;
 }
 
+.download-link {
+  font-weight: 600;
+  margin-left: 0.3rem;
+  color: var(--color-accent, #007bff);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.download-link:hover {
+  color: var(--color-accent-hover, #0056b3);
+  text-decoration: underline;
+}
+
 
 
 .project-title::after {

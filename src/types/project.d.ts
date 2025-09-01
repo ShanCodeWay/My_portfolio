@@ -16,8 +16,9 @@ export interface Project {
     readTime?: string;
     alt?: string;          // For image alt text
   };
-  subCategory?: string;
+  subCategory?: string | string[];
   mainCategory: string;
   image?: string;
   priority?: number;
+  download?: string;    
 }

@@ -8,16 +8,18 @@ export const projectsSoftware: Project[] = [
       "React Native CLI + Redux app with light/dark modes, real-time/manual scanning, and phishing detection AI model.",
     tags: ["React Native", "Redux Thunk", "TypeScript"],
     links: {
-      demo: "https://youtu.be/your-phishguard-demo",
+      demo: "https://youtu.be/h3SN8Pj117k",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2025-10-04",
+      date: "2025-06-05",
       alt: "PhishGuard phishing detection demo",
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
     priority: 2,
+    image: "/images/projects/phishguard.png",
+    download: "https://drive.google.com/uc?export=download&id=1a2b3c4d5e6f7g8h9i0j", 
   },
   {
     id: "electratrack",
@@ -30,7 +32,7 @@ export const projectsSoftware: Project[] = [
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2024-05-06",
       alt: "ElectraTrack desktop app demo",
     },
     subCategory: "Desktop Apps",
@@ -46,11 +48,12 @@ export const projectsSoftware: Project[] = [
       "Built with React Native + Firebase for event registration and participation.",
     tags: ["React Native", "Firebase"],
     links: {
-      demo: "https://youtu.be/your-eventify-app-demo",
+      //demo: "https://youtu.be/your-eventify-app-demo",
+      github: "https://github.com/your-repo",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2024-11-04",
       alt: "Eventify mobile app demo",
     },
     subCategory: "Mobile Apps",
@@ -63,15 +66,16 @@ export const projectsSoftware: Project[] = [
       "React Native front end for e-wallet solution developed for Mercantile Investments & Finance PLC.",
     tags: ["React Native", "Redux", "Finance"],
     links: {
-      demo: "https://youtu.be/your-myifi-demo",
+      //demo: "https://youtu.be/your-myifi-demo",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2024-04-04",
       alt: "MyiFi mobile wallet app demo",
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/myifi.png",
   },
   {
     id: "luckywallet",
@@ -89,6 +93,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/luckywallet.png",
   },
   {
     id: "sfin",
@@ -106,6 +111,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/sfin.png",
   },
   {
     id: "firebase-crud",
@@ -133,7 +139,7 @@ export const projectsSoftware: Project[] = [
       "Full-stack inventory management with React, Node.js, and MongoDB.",
     tags: ["React", "Node.js", "MongoDB"],
     links: {
-      demo: "https://youtu.be/your-inventory-demo",
+      demo: "https://youtu.be/17EdeTPvEVU",
     },
     metadata: {
       author: "Darshana Wijebahu",
@@ -142,6 +148,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Web Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/supermarket-inventory.png",
   },
   {
     id: "astronova",
@@ -150,15 +157,17 @@ export const projectsSoftware: Project[] = [
       "Prototype for Rootcode Tech-Triathlon competition using React, Node.js, MongoDB with Figma UI design.",
     tags: ["React", "Figma", "MongoDB", "Node.js"],
     links: {
-      demo: "https://youtu.be/your-astronova-demo",
+      demo: "https://www.youtube.com/watch?v=9FRZvFTUOvY",
+      github: "https://github.com/lakshan-cd/powerInfinity_astronova",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2023-07-04",
       alt: "Astronova space travel booking app prototype",
     },
     subCategory: "Web Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/astronova.png",
   },
   {
     id: "bus-management",
@@ -167,15 +176,16 @@ export const projectsSoftware: Project[] = [
       "Bus scheduling and management solution using React, React Native, Node.js, and MongoDB.",
     tags: ["React", "React Native", "Node.js", "MongoDB"],
     links: {
-      demo: "https://youtu.be/your-busmgmt-demo",
+      demo: "https://youtu.be/1feUO4MjtJE",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2023-12-02",
       alt: "Highway bus management system demo",
     },
-    subCategory: "Web Apps",
+    subCategory: "Mobile Apps",
     mainCategory: "Software Development",
+    image: "/images/projects/bus-management.png",
   },
   {
     id: "qa-automation",
@@ -184,15 +194,16 @@ export const projectsSoftware: Project[] = [
       "Collaborative QA project focused on automating API and UI testing with BDD and CI/CD. Implemented Selenium for UI automation, RestAssured for API testing, Cucumber for behavior-driven development, and TestNG for reporting. Configured Git and Jenkins pipeline for automation and collaboration.",
     tags: ["Selenium", "RestAssured", "Cucumber", "TestNG", "Jenkins", "Git"],
     links: {
-      demo: "https://youtu.be/your-qa-demo",
-      github: "https://github.com/your-qa-repo",
+      //demo: "https://youtu.be/your-qa-demo",
+      github: "https://github.com/ShanCodeWay/ITQA_Assignment_Group_41",
     },
     metadata: {
       author: "Darshana Wijebahu",
-      date: "2024-10-04",
+      date: "2025-01-04",
       alt: "Automated QA testing demo and repo",
     },
     subCategory: "Software QA",
     mainCategory: "Software Development",
+    image: "/images/projects/qa-automation.png",
   },
 ];

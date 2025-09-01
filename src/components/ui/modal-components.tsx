@@ -9,14 +9,48 @@ type YouTubeModalProps = {
   onError: () => void;
 };
 
-export const YouTubeModal: React.FC<YouTubeModalProps> = ({ content, isLoading, hasError, onLoad, onError }) => {
+export const YouTubeModal: React.FC<YouTubeModalProps> = ({
+  content,
+  isLoading,
+  hasError,
+  onLoad,
+  onError,
+}) => {
   const extractYoutubeId = (url: string) => {
-    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[7].length === 11) ? match[7] : null;
+    try {
+      const parsedUrl = new URL(url);
+
+      // Handle Google Drive preview links
+      if (parsedUrl.hostname.includes("drive.google.com")) {
+        const match = url.match(/\/d\/([^/]+)\//);
+        return match ? { type: "drive", id: match[1] } : null;
+      }
+
+      // Shorts: youtube.com/shorts/<id>
+      if (parsedUrl.pathname.startsWith("/shorts/")) {
+        return { type: "youtube", id: parsedUrl.pathname.split("/shorts/")[1].split("?")[0] };
+      }
+
+      // Watch: youtube.com/watch?v=<id>
+      if (parsedUrl.searchParams.get("v")) {
+        return { type: "youtube", id: parsedUrl.searchParams.get("v")! };
+      }
+
+      // youtu.be/<id>
+      if (parsedUrl.hostname === "youtu.be") {
+        return { type: "youtube", id: parsedUrl.pathname.slice(1) };
+      }
+
+      // Embed / other formats
+      const regExp = /^.*(?:embed\/|v\/|watch\/|\?v=|&v=)([^#&?]*).*/;
+      const match = url.match(regExp);
+      return match && match[1].length === 11 ? { type: "youtube", id: match[1] } : null;
+    } catch {
+      return null;
+    }
   };
 
-  const youtubeId = content ? extractYoutubeId(content) : null;
+  const videoData = content ? extractYoutubeId(content) : null;
 
   return (
     <div className="modal-media-container">
@@ -32,28 +66,44 @@ export const YouTubeModal: React.FC<YouTubeModalProps> = ({ content, isLoading, 
           <div className="error-icon">⚠️</div>
           <h4>Video Not Available</h4>
           <p>Sorry, the video cannot be loaded at this time.</p>
-          <button className="retry-button" onClick={() => window.location.reload()}>
+          <button
+            className="retry-button"
+            onClick={() => window.location.reload()}
+          >
             Try Again
           </button>
         </div>
       )}
 
-      {youtubeId && !hasError && (
-        <div className={`media-wrapper ${isLoading ? 'loading' : ''}`}>
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            onLoad={onLoad}
-            onError={onError}
-            className="youtube-iframe"
-          />
+      {videoData && !hasError && (
+        <div className={`media-wrapper ${isLoading ? "loading" : ""}`}>
+          {videoData.type === "youtube" ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${videoData.id}?autoplay=1&rel=0`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              onLoad={onLoad}
+              onError={onError}
+              className="youtube-iframe"
+            />
+          ) : (
+            <iframe
+              src={`https://drive.google.com/file/d/${videoData.id}/preview`}
+              title="Google Drive video player"
+              frameBorder="0"
+              allow="autoplay"
+              allowFullScreen
+              onLoad={onLoad}
+              onError={onError}
+              className="drive-iframe"
+            />
+          )}
         </div>
       )}
 
-      {!youtubeId && (
+      {!videoData && !hasError && (
         <div className="modal-no-content">
           <div className="no-content-icon">🎬</div>
           <h4>No Video Available</h4>

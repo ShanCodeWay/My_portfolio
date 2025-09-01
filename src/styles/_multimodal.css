@@ -20,9 +20,10 @@
 .modal-content {
   background: var(--color-card-bg);
   border-radius: 1.5rem;
-  padding: 2rem;
+  
   max-width: 90vw;
-  max-height: 80vh; /* CHANGED from 90vh to 80vh */
+  max-height: 95vh; /* allow it to take more screen space */
+  margin: 2rem 0;   /* remove giant margin */
   width: auto;
   position: relative;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -30,7 +31,7 @@
   animation: modalSlideIn 0.3s ease-out;
   display: flex;
   flex-direction: column;
-  margin: 2rem 0; /* ADDED margin to create space at top and bottom */
+  
 }
 
 /* Keep all your other existing styles exactly as they are below */
@@ -112,10 +113,19 @@
 }
 
 .media-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.media-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  border: 0;
+  border-radius: 8px; /* optional, for rounded corners */
 }
 
 .media-wrapper.loading {

@@ -42,11 +42,11 @@ const categoryStructure = {
   },
   design: {
     name: 'Multimedia & Creative Work',
-    subcategories: ['Video Editing','Graphic Design', 'Motion Graphics', '3D Modeling / Animation', '2D Animation']
+    subcategories: ['Graphic Design', 'Motion Graphics', '3D Modeling / Animation', '2D Animation']
   },
   video: { 
     name: 'Video Projects',
-    subcategories: ['Promotional Videos', 'Screen Backgrounds', '2D Animations']
+    subcategories: ['Video Editing','Promotional Videos', 'Screen Backgrounds', '2D Animations']
   },
   writing: {
     name: 'Writing & Documentation',

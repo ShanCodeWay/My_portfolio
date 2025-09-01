@@ -137,8 +137,23 @@ if (project.links.documentation) {
         
         <div className="project-content">
           <h3 className="project-title">{project.title}</h3>
-          <p className="project-description">{project.description}</p>
-          
+          <p className="project-description">
+            {project.description}
+            {project.download && (
+              <>
+                {" "}
+                <a 
+                  href={project.download} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="download-link"
+                >
+                  ⬇ Download
+                </a>
+              </>
+            )}
+          </p>
+        
           <div className="project-tags">
             {project.tags.map((tag, idx) => (
               <span 
@@ -157,6 +172,7 @@ if (project.links.documentation) {
       
           </div>
           
+     
           <div className="project-actions">
             {contentTypes.map((content, idx) => (
               <button
