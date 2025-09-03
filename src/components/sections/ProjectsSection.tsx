@@ -464,15 +464,15 @@ const handleInputFocus = () => {
 
                 <div className="sort-controls">
                 <label htmlFor="sort">Sort by: </label>
-                <select
-                  id="sort"
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value as 'featured' | 'newest')}
-                  className="sort-select"
-                >
-                  <option value="featured">Featured Priority</option>
-                  <option value="newest">Newest First</option>
-                </select>
+               <button
+              className="sort-toggle-button"
+              onClick={() =>
+                setSortOption(sortOption === 'featured' ? 'newest' : 'featured')
+              }
+            >
+              {sortOption === 'featured' ? 'Featured Priority' : 'Newest First'}
+            </button>
+
               </div>
 </div>
 

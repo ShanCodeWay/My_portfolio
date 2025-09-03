@@ -2,7 +2,7 @@ import React from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import Image from 'next/image';
 
-const skills = ['React Native', 'Node.js', 'Python', 'AI/ML', 'AWS', 'Docker', 'TensorFlow', 'GraphQL'];
+const skills = ['React Native', 'Node.js', 'Python', 'AI/ML', 'TypeScript', 'Firebase', 'TensorFlow', 'Next.js'];
 
 export default function AboutSection() {
   return (

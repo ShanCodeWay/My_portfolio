@@ -506,14 +506,14 @@
 .content-type-icon {
   font-size: 1.1em;
   margin-left: 0.25rem;
-  color: var(--color-text-inverse);
+  color: var( --color-white);
   transition: transform 0.25s ease;
 }
 
 .content-type-text {
   font-weight: bold;
   font-size: 0.9rem;
-  color: var(--color-text-inverse);
+  color: var( --color-white);
   transition: transform 0.25s ease;
 }
 

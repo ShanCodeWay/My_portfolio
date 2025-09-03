@@ -138,14 +138,14 @@ export default function HeroSection(): React.JSX.Element {
   </a>
 
   {/* Medium */}
-  <a href="https://medium.com/" aria-label="Medium" target="_blank" rel="noreferrer" className="socialIcon">
+  <a href="https://medium.com/@wijebahuwmpwdgb.20" aria-label="Medium" target="_blank" rel="noreferrer" className="socialIcon">
     <svg width="20" height="20" viewBox="0 -55 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
       <path d="M72.2009141,0 C112.076502,0 144.399375,32.5485469 144.399375,72.6964154 C144.399375,112.844284 112.074049,145.390378 72.2009141,145.390378 C32.327779,145.390378 0,112.844284 0,72.6964154 C0,32.5485469 32.325326,0 72.2009141,0 Z M187.500628,4.25836743 C207.438422,4.25836743 223.601085,34.8960455 223.601085,72.6964154 C223.601085,110.486973 207.440875,141.134463 187.503081,141.134463 C167.565287,141.134463 151.402624,110.486973 151.402624,72.6964154 C151.402624,34.9058574 167.562834,4.25836743 187.500628,4.25836743 Z M243.303393,11.3867175 C250.314,11.3867175 256,38.835526 256,72.6964154 C256,106.547493 250.316453,134.006113 243.303393,134.006113 C236.290333,134.006113 230.609239,106.554852 230.609239,72.6964154 C230.609239,38.837979 236.292786,11.3867175 243.303393,11.3867175 Z"/>
     </svg>
   </a>
 
   {/* YouTube */}
-  <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noreferrer" className="socialIcon">
+  <a href="https://youtube.com/@darshanagayashanwijebahu8189?si=aGJYS-PKq5MI6S45" aria-label="YouTube" target="_blank" rel="noreferrer" className="socialIcon">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.498 6.186a2.994 2.994 0 00-2.11-2.115C19.347 3.5 12 3.5 12 3.5s-7.347 0-9.388.571a2.994 2.994 0 00-2.11 2.115A31.24 31.24 0 000 12a31.24 31.24 0 00.502 5.814 2.994 2.994 0 002.11 2.115C4.653 20.5 12 20.5 12 20.5s7.347 0 9.388-.571a2.994 2.994 0 002.11-2.115A31.24 31.24 0 0024 12a31.24 31.24 0 00-.502-5.814zM9.75 15.568V8.432L15.568 12l-5.818 3.568z"/>
     </svg>
@@ -226,7 +226,7 @@ export default function HeroSection(): React.JSX.Element {
   <span>View Projects</span>
 </Link>
 
-                  <a href="/resume.pdf" download="Darshana_Wijebahu_Resume.pdf" className="secondaryButton">
+                  <a href="/resume.pdf" download="Darshana_Wijebahu_Resume.pdf" className="primaryButton secondaryButton">
                     Download Resume
                   </a>
                 </div>
@@ -247,8 +247,9 @@ export default function HeroSection(): React.JSX.Element {
               <div className="text-sm text-[var(--hero-text)]/50">Crafted with ❤️ — React / React Native / Cloud</div>
               <div className="flex items-center gap-6">
                 <div className="hidden md:block text-sm text-[var(--hero-text)]/50">Quick links:</div>
-                <Link href="#projects" className="text-sm text-[var(--hero-text)]/70 hover:underline">Projects</Link>
-                <a href="#contact" className="text-sm text-[var(--hero-text)]/70 hover:underline">Contact</a>
+                <Link href="#projects" className="glow-underline">Projects</Link>
+                <a href="#contact" className="glow-underline">Contact</a>
+
               </div>
             </div>
 

@@ -15,6 +15,20 @@
   background: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
 }
+.banner-slide .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  opacity: 0.7; /* Lower this for lighter overlay */
+  z-index: 1;
+}
+
+.banner-slide > *:not(.banner-overlay) {
+  position: relative;
+  z-index: 2; /* Keeps text above the overlay */
+}
+
+
 
 .banner-track {
   display: flex;
@@ -64,13 +78,35 @@
   max-width: 1200px;
   margin: 0 auto;
   height: 100%;
+  
 }
 
 .banner-text {
-  color: var(--color-text);
   z-index: 2;
-  padding-right: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+
+  /* Glass effect */
+  background-color: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  backdrop-filter: blur(10px); /* blur behind the element */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+
+  /* Optional: soft shadow for depth */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  /* Text color for readability */
+  color: #ffffff;
+
+  /* Smooth transition for hover (optional) */
+  transition: all 0.3s ease-in-out;
 }
+
+/* Optional: slightly more opaque on hover */
+.banner-text:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
 
 .text-header {
   display: flex;
@@ -102,6 +138,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 0 1px currentColor, 0 0 20px currentColor;
 }
 
 .banner-description {
@@ -109,7 +146,7 @@
   margin-bottom: 2rem;
   opacity: 0.85;
   line-height: 1.5;
-  color: var(--color-text-muted);
+  color: var( --color-white);
   max-width: 90%;
 }
 
@@ -127,6 +164,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+   box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
 }
 
 .banner-cta::before {

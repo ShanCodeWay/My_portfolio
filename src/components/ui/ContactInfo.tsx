@@ -10,6 +10,7 @@ export default function ContactInfo() {
         </div>
         
         <div className="contact-items">
+          {/* Phone */}
           <div className="contact-item group">
             <div className="contact-icon-wrapper">
               <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,10 +20,13 @@ export default function ContactInfo() {
             </div>
             <div className="contact-details">
               <p className="contact-label">Phone</p>
-              <p className="contact-value">+94 76 123 4567</p>
+              <p className="contact-value">
+                <a href="tel:+94711145457">+94 71 114 5457</a>
+              </p>
             </div>
           </div>
           
+          {/* Email */}
           <div className="contact-item group">
             <div className="contact-icon-wrapper">
               <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,10 +36,13 @@ export default function ContactInfo() {
             </div>
             <div className="contact-details">
               <p className="contact-label">Email</p>
-              <p className="contact-value">contact@darshanaw.com</p>
+              <p className="contact-value">
+                <a href="mailto:darshana.wijebahu@gmail.com">darshana.wijebahu@gmail.com</a>
+              </p>
             </div>
           </div>
           
+          {/* Location */}
           <div className="contact-item group">
             <div className="contact-icon-wrapper">
               <svg className="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,9 +53,18 @@ export default function ContactInfo() {
             </div>
             <div className="contact-details">
               <p className="contact-label">Location</p>
-              <p className="contact-value">Colombo, Sri Lanka</p>
+              <p className="contact-value">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Colombo,Sri+Lanka"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Colombo, Sri Lanka
+                </a>
+              </p>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -50,14 +50,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Transforming ideas into functional digital solutions',
     category: 'software',
     images: [
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=500&q=80', // Code closeup
-      'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=500&q=80', // Developer workspace
-      'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=500&q=80'  // Modern laptop
+      'images/background/CategoryBannerImages/MobileBackground.png',
+      'images/background/CategoryBannerImages/WebBackground.png',
+      'images/background/CategoryBannerImages/DesktopBackground.png'
     ],
-    accentColorLight: '#6366F1',
-    accentColorDark: '#818CF8',
+    accentColorLight: '#4ADEDE',   // Soft Teal Cyan
+    accentColorDark: '#00D1D1',    // Deep Electric Teal Glow
     icon: '💻',
-    backgroundImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80' // Developer team collaboration
+    backgroundImage: 'images/background/CategoryBannerImages/softwarebackgroundImage.png' 
   },
   {
     id: 'ai',
@@ -66,30 +66,30 @@ const bannerItems: BannerItem[] = [
     tagline: 'Pushing the boundaries of intelligent systems',
     category: 'ai',
     images: [
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=500&q=80', // Neural network visualization
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=500&q=80', // AI brain concept
-      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=500&q=80'  // Data visualization
+      'images/background/CategoryBannerImages/cardioAi.png',
+      'images/background/CategoryBannerImages/phishguard.png',
+      'images/background/CategoryBannerImages/spotifyAi.png'
     ],
-    accentColorLight: '#06B6D4',
-    accentColorDark: '#22D3EE',
+    accentColorLight: '#7D7DFF',   // Soft Neon Purple
+    accentColorDark: '#5A5AFF',    // Deep Glow Indigo
     icon: '🤖',
-    backgroundImage: 'https://images.unsplash.com/photo-1677442135135-416f8aa26a5b?auto=format&fit=crop&w=1600&q=80' // Futuristic AI concept
+    backgroundImage: 'images/background/CategoryBannerImages/AiBackgroundImage.png'
   },
   {
     id: 'ui',
     title: 'UI/UX & Design',
     description: 'Beautiful interfaces and exceptional user experiences',
     tagline: 'Creating experiences that users love',
-    category: 'ui', 
+    category: 'ui',
     images: [
-      'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=500&q=80', // UI design mockup
-      'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500&q=80', // Design tools
-      'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=500&q=80'  // Color palette
+      'images/background/CategoryBannerImages/UiUxBackgroundImage.png',
+      'images/background/CategoryBannerImages/eventify_UI.png',
+      'images/background/CategoryBannerImages/MarishaCocoPrototype.png'
     ],
-    accentColorLight: '#F59E0B',
-    accentColorDark: '#FBBF24',
+    accentColorLight: '#FFB84D',   // Warm Gold-Orange
+    accentColorDark: '#FF8C00',    // Rich Amber Glow
     icon: '🎨',
-    backgroundImage: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80' // Modern design workspace
+    backgroundImage: 'images/background/CategoryBannerImages/UiUxBackgroundImage.png'
   },
   {
     id: 'video',
@@ -98,14 +98,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Bringing stories to life through motion',
     category: 'video',
     images: [
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=500&q=80', // Video editing setup
-      'https://images.unsplash.com/photo-1579033385971-a7b55b067c79?auto=format&fit=crop&w=500&q=80', // Camera equipment
-      'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=500&q=80'  // Film production
+      'images/background/CategoryBannerImages/Davincy.png',
+      'images/background/CategoryBannerImages/Helicopter-3D-Model.png',
+      'images/background/CategoryBannerImages/GameTrailer2024.png'
     ],
-    accentColorLight: '#EC4899',
-    accentColorDark: '#F472B6',
+    accentColorLight: '#FF6EC7',   // Vibrant Pink
+    accentColorDark: '#FF1493',    // Deep Neon Pink Glow
     icon: '🎥',
-    backgroundImage: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1600&q=80' // Professional video production
+    backgroundImage: 'images/background/CategoryBannerImages/videoBackgroundImage.png' 
   },
   {
     id: 'writing',
@@ -114,16 +114,24 @@ const bannerItems: BannerItem[] = [
     tagline: 'Words that connect and inspire action',
     category: 'writing',
     images: [
-      'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=500&q=80', // Writing notebook
-      'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=500&q=80', // Creative workspace
-      'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=500&q=80'  // Books and coffee
+      'images/background/CategoryBannerImages/react-native-app-security-biometric-authentication.png', 
+      'images/background/CategoryBannerImages/why-choose-react-over-flutter.png',
+      'images/background/CategoryBannerImages/expo-vs-react-native-cli.png'
     ],
-    accentColorLight: '#10B981',
-    accentColorDark: '#34D399',
+    accentColorLight: '#FFD700',  // Bright Gold
+accentColorDark: '#FFA000',   // Deep Amber
+
+
+
+
+
     icon: '📝',
-    backgroundImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80' // Creative writing environment
+    backgroundImage: 'images/background/CategoryBannerImages/WriteBackgroundImage.png'
   }
 ];
+
+
+
 
 
 
@@ -323,23 +331,23 @@ useEffect(() => {
             
             return (
               <div
-                key={item.id}
-                className="banner-slide"
-                style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%), url(${item.backgroundImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundBlendMode: 'overlay',
-                    borderRadius: '1rem',
-                    overflow: 'hidden',
-                    border: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)'}`,
-                    boxShadow: theme === 'dark'
-                    ? '0 20px 40px rgba(0, 0, 0, 0.3)'
-                    : '0 20px 40px rgba(0, 0, 0, 0.15)'
-                }}
-                >
-                <div className="banner-content">
-                  
+  key={item.id}
+  className="banner-slide"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.2)), url(${item.backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    borderRadius: '1rem',
+    overflow: 'hidden',
+    border: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)'}`,
+    boxShadow: theme === 'dark'
+      ? '0 20px 40px rgba(0, 0, 0, 0.3)'
+      : '0 20px 40px rgba(0, 0, 0, 0.15)',
+  }}
+>
+  <div className="banner-content">
+                   
                   <div className="banner-text">
                     <div className="text-header">
                       <div className="category-icon" style={{ color: itemAccentColor }}>

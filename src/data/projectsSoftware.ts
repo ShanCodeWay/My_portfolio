@@ -19,7 +19,7 @@ export const projectsSoftware: Project[] = [
     mainCategory: "Software Development",
     priority: 2,
     image: "/images/projects/phishguard.png",
-    download: "https://drive.google.com/uc?export=download&id=1a2b3c4d5e6f7g8h9i0j", 
+    download: "https://drive.google.com/file/d/11xEHzW4VKOX8IiQqTQkNO5WHx9K0e8ZT/view?usp=sharing", 
   },
   {
     id: "electratrack",
@@ -39,6 +39,7 @@ export const projectsSoftware: Project[] = [
     mainCategory: "Software Development",
     image: "/images/projects/electratrack.png",
     priority: 1,
+    download: "https://drive.google.com/file/d/1ureLOiz6dWmUEAQz-HfsE_Vh6Kp193zC/view?usp=sharing", 
     
   },
   {

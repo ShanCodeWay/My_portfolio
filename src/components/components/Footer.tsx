@@ -25,25 +25,36 @@ export default function Footer() {
 
           <div className="footer-socials">
             <SocialLink 
-              href="https://github.com/yourusername" 
+              href="https://github.com/ShanCodeWay" 
               icon="github" 
               //network="github"
             />
             <SocialLink 
-              href="https://linkedin.com/in/yourprofile" 
+              href="https://www.linkedin.com/in/darshana-wijebahu/" 
               icon="linkedin" 
               //network="linkedin"
             />
             <SocialLink 
-              href="https://twitter.com/yourhandle" 
-              icon="twitter" 
+              href="https://twitter.com/DWijebahu" 
+              icon="x" 
               //network="twitter"
             />
+            <SocialLink
+              href="https://medium.com/@wijebahuwmpwdgb.20"
+              icon="medium"
+              //network="medium"
+            />
             <SocialLink 
-              href="mailto:your@email.com" 
+              href="https://youtube.com/@darshanagayashanwijebahu8189?si=aGJYS-PKq5MI6S45"
+              icon="youtube"
+              //network="youtube"
+            />
+            <SocialLink 
+              href="mailto:darshana.wijebahu@example.com" 
               icon="mail" 
               //network="mail"
             />
+
           </div>
         </div>
 
