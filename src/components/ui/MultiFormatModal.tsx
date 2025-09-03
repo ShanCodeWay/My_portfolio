@@ -14,7 +14,7 @@ export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  content?: string; // URL or other content reference
+  content?: string; 
   type: ModalType;
   metadata?: {
     alt?: string;

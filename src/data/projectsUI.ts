@@ -39,4 +39,22 @@ export const projectsUI: Project[] = [
     mainCategory: "Design",
     image: "/images/projects/astronova.png",
   },
+  {
+  id: "marisha-coco-prototype",
+  title: "Marisha Coco Prototype | UI Design in Figma",
+  description: "A modern UI design prototype for Marisha Coco created in Figma, showcasing intuitive interfaces and clean user flows. Completed on January 20, 2025.",
+  tags: ["Figma", "UI Design", "Prototype", "UX Design", "App Design"],
+  links: {
+    demo: "https://youtu.be/csoXHfy88CQ", 
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2025-01-20",
+    alt: "Marisha Coco UI Prototype design in Figma",
+  },
+  subCategory: "UI/UX Design",
+  mainCategory: "Design Projects",
+  image: "/images/projects/MarishaCocoPrototype.png"
+}
+
 ];

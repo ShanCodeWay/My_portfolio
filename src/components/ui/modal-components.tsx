@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+
+
 // YouTube Modal
 type YouTubeModalProps = {
   content?: string;
@@ -146,7 +148,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({ content, altText, isLoad
       )}
 
       {content && !hasError && (
-        <div className={`media-wrapper ${isLoading ? 'loading' : ''}`}>
+        <div className={`media-wrapper ${isLoading ? 'loading' : 'img'}`}>
           <img
             src={content}
             alt={altText}

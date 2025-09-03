@@ -215,6 +215,285 @@ An exciting blend of creativity, storytelling, and post-production to showcase t
   image: "/images/projects/GameTrailer2024.png",
 },
 
+{
+  id: "FitSixesMemoir2023",
+  title: "FIT Sixes 2023 Memoir | Event Highlight Video | DaVinci Resolve",
+  description: `Relive the memories of FIT Sixes 2023 with this special memoir video! 🏏✨  
+
+I created and edited this event highlight video using DaVinci Resolve to capture the energy, excitement, and unforgettable moments of the cricket fiesta held on October 21, 2023.  
+
+🔹 Edited with: DaVinci Resolve  
+🔹 Event: FIT Sixes 2023 Cricket Fiesta  
+🔹 Date: October 21, 2023  
+🔹 Organizer: ITFSU – Faculty of Information Technology, University of Moratuwa  
+
+A project filled with creativity, collaboration, and passion for storytelling through video editing.`,
+  tags: [
+    "After Effects",
+    "DaVinci Resolve",
+    "Video Editing",
+    "Event Highlights",
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=9Kww2FsFmtg",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2023-10-21",
+    alt: "FIT Sixes 2023 Memoir Video Edited with DaVinci Resolve",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Video Projects",
+  image: "/images/projects/FITSixesMemoir2023.png",
+},
+
+{
+  id: "SEDSMoraApril2024",
+  title: "What's Up This Month | April 2024 | SEDS Mora | DaVinci Resolve & After Effects",
+  description: `Happy to present my latest video project 'What's Up This Month | April 2024'! 🌌✨  
+
+Created for **SEDS Mora**, the University of Moratuwa chapter of Students for the Exploration and Development of Space, this video highlights the celestial wonders of April.  
+
+Edited and crafted using **DaVinci Resolve** & **Adobe After Effects**, combining motion graphics and creative editing for a cosmic journey.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve & Adobe After Effects  
+🔹 Series: What's Up This Month`,
+  tags: [
+    "DaVinci Resolve",
+    "After Effects",
+    "SEDS Mora",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=kzlcZWaxoVc",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2024-04-01",
+    alt: "What's Up This Month April 2024 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraApril2024.jpg",
+},
+{
+  id: "SEDSMoraObservation2024",
+  title: "SEDS Mora Night Sky Observation Camp | 2024 Highlights",
+  description: `A short highlight from **SEDS Mora’s Night Sky Observation Camp 2024** 🌌🔭  
+
+Edited using **DaVinci Resolve**, this short captures the essence of stargazing, astronomy learning, and the spirit of exploration shared by the community.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Event: Observation Camp 2024`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://youtube.com/shorts/j9DRXFIGTas",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2024-03-20",
+    alt: "SEDS Mora Night Sky Observation Camp 2024",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraObservation2024.jpg",
+},
+{
+  id: "SEDSMoraMarch2024",
+  title: "What's Up This Month | March 2024 | SEDS Mora | DaVinci Resolve & After Effects",
+  description: `Excited to present 'What's Up This Month | March 2024' 🚀🌟  
+
+As a proud SEDS Mora member, I crafted this astronomy series episode with **DaVinci Resolve** & **Adobe After Effects**. It explores the wonders of the March night sky and inspires curiosity about space exploration.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve & After Effects  
+🔹 Series: What's Up This Month`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=K3I4-DT_7Q0",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2024-03-01",
+    alt: "What's Up This Month March 2024 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraMarch2024.jpg",
+},
+{
+  id: "SEDSMoraFeb2024",
+  title: "What's Up This Month | February 2024 | SEDS Mora | DaVinci Resolve & After Effects",
+  description: `Presenting 'What's Up This Month | February 2024' 🌌🚀  
+
+A cosmic journey video made for **SEDS Mora**, featuring highlights of the February night sky. Edited with **DaVinci Resolve** and enhanced with **Adobe After Effects**.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve & After Effects`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=JxRGCh-p-Ck",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2024-02-01",
+    alt: "What's Up This Month February 2024 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraFeb2024.jpg",
+},
+{
+  id: "SEDSMoraJan2024",
+  title: "What's Up This Month | January 2024 | SEDS Mora | DaVinci Resolve",
+  description: `Kicking off 2024 with 'What's Up This Month | January 2024'! 🌠  
+
+Created for **SEDS Mora**, this episode explores the celestial wonders visible in January. Edited using **DaVinci Resolve** & **Adobe After Effects**.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve, After Effects`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=ADGkPgu884Y",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2024-01-01",
+    alt: "What's Up This Month January 2024 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraJan2024.jpg",
+},
+{
+  id: "SEDSMoraOct2023",
+  title: "What's Up This Month | October 2023 | SEDS Mora | DaVinci Resolve",
+  description: `Delighted to share 'What's Up This Month | October 2023' 🌌🔭  
+
+An astronomy highlight video made for **SEDS Mora**, capturing celestial wonders of October 2023. Edited using **DaVinci Resolve** & **Adobe After Effects**.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve, After Effects`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=qt5r8l1goDk",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2023-10-01",
+    alt: "What's Up This Month October 2023 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraOct2023.jpg",
+},
+{
+  id: "SEDSMoraAug2023",
+  title: "What's Up This Month | August 2023 | SEDS Mora | DaVinci Resolve",
+  description: `Presenting 'What's Up This Month | August 2023' 🌌✨  
+
+Created for **SEDS Mora**, this astronomy series episode explores the night sky events of August. Edited with **DaVinci Resolve** to deliver a creative visual journey.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=u2khEmzTGRI",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2023-08-01",
+    alt: "What's Up This Month August 2023 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraAug2023.jpg",
+},
+{
+  id: "SEDSMoraMay2023",
+  title: "What's Up This Month | May 2023 | SEDS Mora | DaVinci Resolve",
+  description: `Happy to share 'What's Up This Month | May 2023' 🌌🔭  
+
+An astronomy highlight video made for **SEDS Mora**, featuring celestial events of May. Edited with **DaVinci Resolve** to inspire skywatchers and astronomy enthusiasts.  
+
+🔹 Club: SEDS Mora – University of Moratuwa  
+🔹 Tools: DaVinci Resolve`,
+  tags: [
+    "DaVinci Resolve",
+    "SEDS Mora",
+    "Night Sky",
+    "Astronomy",
+    "Space Exploration"
+  ],
+  links: {
+    demo: "https://www.youtube.com/watch?v=nPlINCR1o5k",
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2023-05-01",
+    alt: "What's Up This Month May 2023 SEDS Mora",
+  },
+  subCategory: "Video Editing",
+  mainCategory: "Space Projects",
+  image: "/images/projects/SEDSMoraMay2023.jpg",
+},
+{
+  id: "AfterEffectsTuitionAd",
+  title: "After Effects Tuition A/L Classes Advertisement | Yasiru Jayasinghe",
+  description: "A creative advertisement video for Yasiru Jayasinghe’s A/L tuition classes, designed and animated using Adobe After Effects. Released on March 20, 2025.",
+  tags: ["After Effects", "Motion Graphics", "Video Advertisement", "A/L Classes", "Tuition Ad"],
+  links: {
+    demo: "https://youtube.com/shorts/_7B7v-XsINQ", 
+  },
+  metadata: {
+    author: "Darshana Wijebahu",
+    date: "2025-03-20",
+    alt: "After Effects Tuition A/L Classes Advertisement for Yasiru Jayasinghe",
+  },
+  subCategory: "Promotional Videos",
+  mainCategory: "Video Projects",
+  image: "/images/projects/AfterEffectsTuitionAd.png"
+}
+
+
 
 
 ];

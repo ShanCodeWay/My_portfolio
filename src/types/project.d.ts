@@ -1,3 +1,4 @@
+import { ModalType } from './../components/ui/MultiFormatModal';
 export interface Project {
   id: string;
   title: string;
@@ -20,5 +21,6 @@ export interface Project {
   mainCategory: string;
   image?: string;
   priority?: number;
-  download?: string;    
+  download?: string;
+  ModalType?: ModalType;
 }

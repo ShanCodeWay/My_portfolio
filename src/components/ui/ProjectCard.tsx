@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Project } from '@/types/project';
 import MultiFormatModal, { ModalType } from './MultiFormatModal';
 
@@ -9,23 +9,88 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState<ModalType>('youtube');
+  const [modalType, setModalType] = useState<ModalType>(
+    (project.ModalType as ModalType) || 'youtube'
+  );
   const [modalContent, setModalContent] = useState('');
+  const [isHovering, setIsHovering] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef<HTMLIFrameElement>(null);
 
+
+  
   const detectContentType = (url: string): ModalType => {
     if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
     if (url.includes('figma.com')) return 'figma';
     if (url.includes('medium.com') || url.includes('blog')) return 'article';
     if (url.endsWith('.pdf')) return 'pdf';
     if (url.match(/\.(jpeg|jpg|gif|png|webp|svg)$/i)) return 'image';
-    return 'youtube'; // default
+    return 'youtube';
   };
 
-  const handleContentClick = (e: React.MouseEvent, url: string, type: ModalType) => {
-    e.preventDefault();
-    setModalType(type);
-    setModalContent(url);
+ const handleContentClick = (
+  e: React.MouseEvent,
+  url: string,
+  type: ModalType
+) => {
+  e.preventDefault();
+
+  // store click coords
+  document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
+  document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
+
+  setModalType(type);
+  setModalContent(url);
+  setIsModalOpen(true);
+};
+
+const handleOverlayClick = (e: React.MouseEvent) => {
+  e.preventDefault();
+
+  document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
+  document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
+
+  if (youtubeId) {
+    setModalType("youtube");
+    setModalContent(youtubeUrl ?? "");
     setIsModalOpen(true);
+  } else if (project.ModalType === "image") {
+    setModalType("image");
+    setModalContent(project.image ?? "");
+    setIsModalOpen(true);
+  } else if (contentTypes.length > 0) {
+    const firstContent = contentTypes[0];
+    setModalType(firstContent.type);
+    setModalContent(firstContent.url);
+    setIsModalOpen(true);
+  }
+};
+
+
+  const handleMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHovering(true);
+    }, 500); // 500ms delay before showing video
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setIsHovering(false);
+    setIsVideoLoaded(false);
+  };
+
+  const getYouTubeId = (url: string): string | null => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
   };
 
   const getButtonIcon = (type: ModalType) => {
@@ -51,32 +116,48 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   };
 
   // Check what content types are available
-const contentTypes: { type: ModalType, url: string }[] = [];
+  const contentTypes: { type: ModalType, url: string }[] = [];
 
-if (project.links.demo) {
-  const type = detectContentType(project.links.demo);
-  // prevent duplicate article type if demo is also Medium
-  if (!(type === 'article' && project.links.article)) {
-    contentTypes.push({ type, url: project.links.demo });
+  if (project.links.demo) {
+    const type = project.ModalType
+      ? (project.ModalType as ModalType) 
+      : detectContentType(project.links.demo); 
+
+    // prevent duplicate article type if demo is also Medium
+    if (!(type === 'article' && project.links.article)) {
+      contentTypes.push({ type, url: project.links.demo });
+    }
   }
-}
 
-if (project.links.prototype) {
-  contentTypes.push({ type: 'figma', url: project.links.prototype });
-}
-
-if (project.links.article) {
-  contentTypes.push({ type: 'article', url: project.links.article });
-}
-
-if (project.links.documentation) {
-  const type = detectContentType(project.links.documentation);
-  // prevent duplicate article type here too
-  if (!(type === 'article' && project.links.article)) {
-    contentTypes.push({ type, url: project.links.documentation });
+  if (project.links.prototype) {
+    contentTypes.push({ type: 'figma', url: project.links.prototype });
   }
-}
 
+  if (project.links.article) {
+    contentTypes.push({ type: 'article', url: project.links.article });
+  }
+
+  if (project.links.documentation) {
+    const type = project.ModalType
+      ? (project.ModalType as ModalType)
+      : detectContentType(project.links.documentation);
+
+    if (!(type === 'article' && project.links.article)) {
+      contentTypes.push({ type, url: project.links.documentation });
+    }
+  }
+
+  // Check if we have a YouTube URL for hover preview
+  const youtubeUrl = contentTypes.find(content => content.type === 'youtube')?.url;
+  const youtubeId = youtubeUrl ? getYouTubeId(youtubeUrl) : null;
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -86,20 +167,60 @@ if (project.links.documentation) {
           animationDelay: `${index * 0.1}s`,
         }}
       >
-        <div className="project-image-container overflow-hidden rounded-xl relative">
-          <div className="project-image-placeholder">
-                {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={`${project.title} screenshot`} 
-                    className="project-image"
-                  />
-                ) : (
-                  <span>[Project Screenshot]</span>
+        <div 
+          className="project-image-container overflow-hidden rounded-xl relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="project-image-placeholder relative">
+            {project.image ? (
+              <>
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} screenshot`} 
+                  className="project-image"
+                  // Removed onClick handler from image
+                />
+                
+                {/* YouTube preview overlay - now clickable */}
+                {youtubeId && isHovering && (
+                  <div 
+                    className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
+                    onClick={handleOverlayClick}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="w-full h-full">
+                      <iframe
+                        ref={videoRef}
+                        className="w-full h-full"
+                        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&rel=0`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        onLoad={() => setIsVideoLoaded(true)}
+                        style={{ pointerEvents: 'none' }} // Keep iframe non-interactive
+                      ></iframe>
+                    </div>
+                    
+                    {!isVideoLoaded && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="loader">Loading...</div>
+                      </div>
+                    )}
+                  </div>
                 )}
-              </div>
+              </>
+            ) : (
+              <span>[Project Screenshot]</span>
+            )}
+          </div>
 
-          <div className="project-overlay">
+          {/* Overlay that shows on hover - now clickable */}
+          <div 
+            className="project-overlay"
+            onClick={handleOverlayClick}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="project-overlay-content">
               <h3 className="project-title-overlay">{project.title}</h3>
               <div className="project-links-overlay">
@@ -168,11 +289,8 @@ if (project.links.documentation) {
                 {tag}
               </span>
             ))}
-
-      
           </div>
           
-     
           <div className="project-actions">
             {contentTypes.map((content, idx) => (
               <button
@@ -203,36 +321,33 @@ if (project.links.documentation) {
               </a>
             )}
 
-                <button
-                  className="project-action-btn share-action"
-                  onClick={() => {
-                    if (navigator.share) {
-                      navigator.share({
-                        title: project.title,
-                        text: project.description,
-                        url: window.location.href,
-                      }).catch((err) => console.error('Share failed:', err));
-                    } else {
-                      navigator.clipboard.writeText(window.location.href);
-                      alert('Link copied to clipboard!');
-                    }
-                  }}
-                  style={{ animationDelay: `${0.3 + (contentTypes.length + 1) * 0.1}s` }}
-                >
-                  <span className="content-type-text">Share</span>
-                  <span className="content-type-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="18" cy="5" r="3" stroke="currentColor" strokeWidth="2"/>
-                      <circle cx="6" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-                      <circle cx="18" cy="19" r="3" stroke="currentColor" strokeWidth="2"/>
-                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <line x1="8.59" y1="10.49" x2="15.42" y2="6.51" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                  </span>
-                </button>
-
-
-
+            <button
+              className="project-action-btn share-action"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: project.title,
+                    text: project.description,
+                    url: window.location.href,
+                  }).catch((err) => console.error('Share failed:', err));
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert('Link copied to clipboard!');
+                }
+              }}
+              style={{ animationDelay: `${0.3 + (contentTypes.length + 1) * 0.1}s` }}
+            >
+              <span className="content-type-text">Share</span>
+              <span className="content-type-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="18" cy="5" r="3" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="6" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="18" cy="19" r="3" stroke="currentColor" strokeWidth="2"/>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <line x1="8.59" y1="10.49" x2="15.42" y2="6.51" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>
