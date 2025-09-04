@@ -17,7 +17,7 @@ export const projectsAI: Project[] = [
     },
     subCategory: "AI/ML Projects",
     mainCategory: "AI & Machine Learning",
-    priority: 3,
+    priority: 1,
     image: "/images/projects/cardioAi.png",
   },
   {

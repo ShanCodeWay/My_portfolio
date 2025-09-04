@@ -38,7 +38,7 @@ export const projectsSoftware: Project[] = [
     subCategory: "Desktop Apps",
     mainCategory: "Software Development",
     image: "/images/projects/electratrack.png",
-    priority: 1,
+    priority: 3,
     download: "https://drive.google.com/file/d/1ureLOiz6dWmUEAQz-HfsE_Vh6Kp193zC/view?usp=sharing", 
     
   },
@@ -114,25 +114,7 @@ export const projectsSoftware: Project[] = [
     mainCategory: "Software Development",
     image: "/images/projects/sfin.png",
   },
-  {
-    id: "firebase-crud",
-    title: "Firebase CRUD Tutorial",
-    description:
-      "Educational project demonstrating Firebase CRUD operations with React.",
-    tags: ["React", "Firebase", "Tutorial"],
-    links: {
-      demo: "https://youtu.be/your-firebase-crud-video",
-      github: "https://github.com/your-repo",
-    },
-    metadata: {
-      author: "Darshana Wijebahu",
-      date: "2024-10-04",
-      alt: "Firebase CRUD tutorial video and repo",
-      readTime: "10 min tutorial",
-    },
-    subCategory: "Web Apps",
-    mainCategory: "Software Development",
-  },
+  
   {
     id: "supermarket-inventory",
     title: "Supermarket Inventory System",
@@ -150,6 +132,7 @@ export const projectsSoftware: Project[] = [
     subCategory: "Web Apps",
     mainCategory: "Software Development",
     image: "/images/projects/supermarket-inventory.png",
+    priority: 5,
   },
   {
     id: "astronova",
@@ -187,6 +170,7 @@ export const projectsSoftware: Project[] = [
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
     image: "/images/projects/bus-management.png",
+    priority: 4,
   },
   {
     id: "qa-automation",

@@ -35,22 +35,7 @@ export const projectsVideo: Project[] = [
     mainCategory: "Video Projects",
     image: "/images/projects/Memories-of-Batch20-FIT.jpg",
   },
-  {
-    id: "2d-short-animation",
-    title: "2D Short Animation",
-    description: "Created with free assets and OpenToonz for practice in 2D motion.",
-    tags: ["OpenToonz", "2D Animation"],
-    links: {
-      demo: "https://youtu.be/your-animation-demo",
-    },
-    metadata: {
-      author: "Darshana Wijebahu",
-      date: "2024-10-04",
-      alt: "2D short animation demo created with OpenToonz",
-    },
-    subCategory: "2D Animation",
-    mainCategory: "Video Projects",
-  },
+ 
   {
   id: "FitSixes2024",
   title: "FIT Sixes 2024 Cricket Fiesta | Short Promo| Edited with DaVinci Resolve",

@@ -19,6 +19,7 @@ export const projectsUI: Project[] = [
     subCategory: "UX/UI Design",
     mainCategory: "Design",
     image: "/images/projects/eventify_UI.png",
+    priority: 6,
   },
   {
     id: "astronova",

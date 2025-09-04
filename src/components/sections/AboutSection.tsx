@@ -58,7 +58,7 @@ export default function AboutSection() {
                 <span className="btn-glow"></span>
               </a>
               <a 
-                href="/resume.pdf" 
+                href="/Darshana_Wijebahu_SE.pdf" 
                 download 
                 className="action-btn secondary-btn"
               >

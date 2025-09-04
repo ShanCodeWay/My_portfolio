@@ -206,9 +206,9 @@ export default function HeroSection(): React.JSX.Element {
 
                         <div className="flex justify-center md:justify-start mt-4 mb-2">
                                 <QRCodeResume 
-                                url="https://your-portfolio.com/resume" 
+                                url="https://drive.google.com/file/d/19dohgNj9-TTo8ytt7QL5BgjR3jMsTDIh/view?usp=sharing" 
                                 size={80}
-                                className="md:hidden" // Show only on mobile
+                                className="md:hidden" 
                                 />
   </div>
 
@@ -226,7 +226,7 @@ export default function HeroSection(): React.JSX.Element {
   <span>View Projects</span>
 </Link>
 
-                  <a href="/resume.pdf" download="Darshana_Wijebahu_Resume.pdf" className="primaryButton secondaryButton">
+                  <a href="/Darshana_Wijebahu_SE.pdf" download="Darshana_Wijebahu_SE.pdf" className="primaryButton secondaryButton">
                     Download Resume
                   </a>
                 </div>
