@@ -60,24 +60,27 @@ export default function Particles({ count = 30, color = "rgb(255, 255, 255)" }: 
     }));
     setParticles(newParticles);
 
-    const animate = () => {
-      setParticles(prevParticles => 
-        prevParticles.map(p => {
-          let newX = p.x + p.speedX;
-          let newY = p.y + p.speedY;
+const animate = () => {
+  setParticles(prevParticles =>
+    prevParticles.map(p => {
+      const nextX = p.x + p.speedX;
+      const nextY = p.y + p.speedY;
 
-          if (newX > 100 || newX < 0) p.speedX *= -0.9;
-          if (newY > 100 || newY < 0) p.speedY *= -0.9;
+      const speedX = nextX > 100 || nextX < 0 ? p.speedX * -0.9 : p.speedX;
+      const speedY = nextY > 100 || nextY < 0 ? p.speedY * -0.9 : p.speedY;
 
-          return {
-            ...p,
-            x: Math.max(0, Math.min(100, newX)),
-            y: Math.max(0, Math.min(100, newY)),
-          };
-        })
-      );
-      animationRef.current = requestAnimationFrame(animate);
-    };
+      return {
+        ...p,
+        x: Math.max(0, Math.min(100, nextX)),
+        y: Math.max(0, Math.min(100, nextY)),
+        speedX,
+        speedY,
+      };
+    })
+  );
+  animationRef.current = requestAnimationFrame(animate);
+};
+
 
     animationRef.current = requestAnimationFrame(animate);
 
