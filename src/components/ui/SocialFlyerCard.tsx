@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
 interface FlyerProps {
@@ -160,9 +161,9 @@ const SocialFlyer: React.FC<FlyerProps> = ({
               <div className="flyer-modal-details">
                 <h2>{title}</h2>
                 <p>{description}</p>
-                <a href={ctaLink} className="flyer-modal-cta primary-cta">
+                <Link href={ctaLink} className="flyer-modal-cta primary-cta">
                   {ctaText}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

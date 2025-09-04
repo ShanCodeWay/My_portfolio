@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function ContactInfo() {
@@ -21,7 +22,7 @@ export default function ContactInfo() {
             <div className="contact-details">
               <p className="contact-label">Phone</p>
               <p className="contact-value">
-                <a href="tel:+94711145457">+94 71 114 5457</a>
+                <Link href="tel:+94711145457">+94 71 114 5457</Link>
               </p>
             </div>
           </div>
@@ -37,7 +38,7 @@ export default function ContactInfo() {
             <div className="contact-details">
               <p className="contact-label">Email</p>
               <p className="contact-value">
-                <a href="mailto:darshana.wijebahu@gmail.com">darshana.wijebahu@gmail.com</a>
+                <Link href="mailto:darshana.wijebahu@gmail.com">darshana.wijebahu@gmail.com</Link>
               </p>
             </div>
           </div>

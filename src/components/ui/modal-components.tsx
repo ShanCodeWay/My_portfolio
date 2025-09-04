@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 
@@ -285,9 +286,9 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ content, isLoading, 
             dangerouslySetInnerHTML={{ __html: articleContent }}
           />
           <div className="article-original-link">
-            <a href={content} target="_blank" rel="noopener noreferrer">
+            <Link href={content} target="_blank" rel="noopener noreferrer">
               Read original article
-            </a>
+            </Link>
           </div>
         </div>
       )}

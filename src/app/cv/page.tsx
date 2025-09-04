@@ -6,6 +6,7 @@ import './cv-styles.css';
 import Header from '@/components/components/Header';
 import Image from "next/image";
 import FollowMe from '@/components/ui/FollowMe';
+import Link from 'next/link';
 
 export default function CVPage() {
   const [activeSection, setActiveSection] = useState('profile');
@@ -121,14 +122,14 @@ export default function CVPage() {
     <svg className="contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
-    <a href="mailto:darshana.wijebahu@gmail.com">darshana.wijebahu@gmail.com</a>
+    <Link href="mailto:darshana.wijebahu@gmail.com">darshana.wijebahu@gmail.com</Link>
   </div>
 
   <div className="contact-item">
     <svg className="contact-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a2 2 0 011.9 1.37l1.14 3.41a2 2 0 01-.45 2.11l-1.7 1.7a16 16 0 006.36 6.36l1.7-1.7a2 2 0 012.11-.45l3.41 1.14a2 2 0 011.37 1.9V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z" />
     </svg>
-    <a href="tel:+94711145457">(+94) 71 114 5457</a>
+    <Link href="tel:+94711145457">(+94) 71 114 5457</Link>
   </div>
 
   <div className="contact-item">

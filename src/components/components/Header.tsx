@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '@/components/contexts/ThemeContext';
 import './_headerStyles.css';
+import Link from 'next/link';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,17 +29,17 @@ export default function Header() {
       }}
     >
       <div className="header-container">
-        <a href="/" className="brand">
+        <Link href="/" className="brand">
           Darshana Wijebahu
-        </a>
+        </Link>
         
         <nav className="desktop-nav">
           <ul className="nav-links">
-          <li><a href="/" className="nav-link">Home</a></li>
-          <li><a href="/#projects" className="nav-link">Projects</a></li>
-          <li><a href="/#about" className="nav-link">About</a></li>
-          <li><a href="/#contact" className="nav-link">Contact</a></li>
-          <li><a href="/cv" className="nav-link">CV</a></li> 
+          <li><Link href="/" className="nav-link">Home</Link></li>
+          <li><Link href="/#projects" className="nav-link">Projects</Link></li>
+          <li><Link href="/#about" className="nav-link">About</Link></li>
+          <li><Link href="/#contact" className="nav-link">Contact</Link></li>
+          <li><Link href="/cv" className="nav-link">CV</Link></li> 
         </ul>
 
           <button 
@@ -90,11 +91,11 @@ export default function Header() {
 
       <div className={`mobile-menu ${mobileMenuOpen ? 'mobile-menu-open' : ''}`}>
         <ul className="mobile-nav-links">
-        <li><a href="/" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
-        <li><a href="/#projects" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</a></li>
-        <li><a href="/#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</a></li>
-        <li><a href="/#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
-        <li><a href="/cv" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>CV</a></li> 
+        <li><Link href="/" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
+        <li><Link href="/#projects" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</Link></li>
+        <li><Link href="/#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</Link></li>
+        <li><Link href="/#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+        <li><Link href="/cv" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>CV</Link></li>
       </ul>
 
 

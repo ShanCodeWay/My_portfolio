@@ -24,7 +24,7 @@ export default function AboutSection() {
           <div className="about-text scroll-animate">
             <div className="about-description">
               <p className="description-paragraph">
-                I'm a passionate software engineer with expertise in building <span className="highlight-text">AI-powered applications</span> and 
+                I&apos;m passionate software engineer with expertise in building <span className="highlight-text">AI-powered applications</span> and 
                 cross-platform mobile solutions using <span className="highlight-text">React Native</span>.
               </p>
               <p className="description-paragraph">
