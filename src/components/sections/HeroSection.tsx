@@ -206,7 +206,7 @@ export default function HeroSection(): React.JSX.Element {
 
                         <div className="flex justify-center md:justify-start mt-4 mb-2">
                                 <QRCodeResume 
-                                url="https://drive.google.com/file/d/19dohgNj9-TTo8ytt7QL5BgjR3jMsTDIh/view?usp=sharing" 
+                                url="https://drive.google.com/file/d/11WKmaAOa38BwZxCH3OMIaSbGZGsDPSah/view?usp=sharing" 
                                 size={80}
                                 className="md:hidden" 
                                 />
