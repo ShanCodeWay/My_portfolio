@@ -51,8 +51,8 @@ export default function CVPage() {
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/darshana_wijebahu_cv.pdf';
-    link.download = 'Darshana_Wijebahu_CV.pdf';
+    link.href = '/Darshana_Wijebahu_SE.pdf';
+    link.download = 'Darshana_Wijebahu_SE.pdf';
     link.click();
   };
 
@@ -249,7 +249,7 @@ export default function CVPage() {
                       <div className="timeline-marker"></div>
                       <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/CVIcons/moratuwaLogo.png" alt="University of Moratuwa" className="section-content-icon" />
+                          <img src="/images/cvIcons/moratuwaLogo.png" alt="University of Moratuwa" className="section-content-icon" />
                           <div>
                             <h3>B.Sc. (Hons) in Information Technology and Management</h3>
                             <p className="timeline-period">2021 – 2025 (Expected)</p>
@@ -268,7 +268,7 @@ export default function CVPage() {
                       <div className="timeline-marker"></div>
                       <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/CVIcons/CALogo.png" alt="Institute of Chartered Accountants" className="section-content-icon" />
+                          <img src="/images/cvIcons/CALogo.png" alt="Institute of Chartered Accountants" className="section-content-icon" />
                           <div>
                             <h3>Accounting & Business / Business Level 2</h3>
                             <p className="timeline-period">Since 2019</p>
@@ -280,7 +280,7 @@ export default function CVPage() {
                    <div className="timeline-marker"></div>
                     <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/CVIcons/poramadullaLogo.png" alt="poramadullaLogo" className="section-content-icon" />
+                          <img src="/images/cvIcons/poramadullaLogo.png" alt="poramadullaLogo" className="section-content-icon" />
                           <div>
                             <h3>Poramadulla Central College, Hanguranketha</h3>
                             <p className="timeline-period">2019</p>
@@ -433,7 +433,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4 }}
                     >
-                      <img src="/images/CVIcons/openUniLogo.png" alt="Open University of Sri Lanka" className="section-content-icon" />
+                      <img src="/images/cvIcons/openUniLogo.png" alt="Open University of Sri Lanka" className="section-content-icon" />
                       HRM Certificate Course – The Open University of Sri Lanka (2020)
                     </motion.li>
                     <motion.li 
@@ -442,7 +442,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.1 }}
                     >
-                      <img src="/images/CVIcons/CALogo.png" alt="Institute of Chartered Accountants of Sri Lanka" className="section-content-icon" />
+                      <img src="/images/cvIcons/CALogo.png" alt="Institute of Chartered Accountants of Sri Lanka" className="section-content-icon" />
                       Business Level 2 – Institute of Chartered Accountants of Sri Lanka (2019)
                     </motion.li>
                     <motion.li 
@@ -451,7 +451,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                      <img src="/images/CVIcons/sibaLogo.png" alt="SIBA Campus" className="section-content-icon" />
+                      <img src="/images/cvIcons/sibaLogo.png" alt="SIBA Campus" className="section-content-icon" />
                       Diploma in Information Technology – SIBA Campus (2019)
                     </motion.li>
                   </ul>
