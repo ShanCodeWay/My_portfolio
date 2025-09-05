@@ -1,6 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react';
+'use client';
+
+import React, { useState, useRef, useEffect, useContext, createContext } from 'react';
 import { Project } from '@/types/project';
 import MultiFormatModal, { ModalType } from './MultiFormatModal';
+
+// Create a context to manage global video state
+interface VideoContextType {
+  currentlyPlaying: string | null;
+  setCurrentlyPlaying: (id: string | null) => void;
+}
+
+const VideoContext = createContext<VideoContextType>({
+  currentlyPlaying: null,
+  setCurrentlyPlaying: () => {},
+});
+
+// Provider component
+export const VideoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currentlyPlaying, setCurrentlyPlaying] = useState<string | null>(null);
+  
+  return (
+    <VideoContext.Provider value={{ currentlyPlaying, setCurrentlyPlaying }}>
+      {children}
+    </VideoContext.Provider>
+  );
+};
+
+// Hook to use the video context
+const useVideo = () => useContext(VideoContext);
 
 interface ProjectCardProps {
   project: Project;
@@ -20,6 +47,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const videoRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Use the video context
+  const { currentlyPlaying, setCurrentlyPlaying } = useVideo();
+  
+  // Generate a unique ID for this card's video
+  const videoId = `${project.title}-${index}`;
 
   // Detect if device is touch capable
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -80,7 +113,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
     document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
 
-    if (youtubeId) {
+    if (youtubePreviewId) {
       setModalType("youtube");
       setModalContent(youtubeUrl ?? "");
       setIsModalOpen(true);
@@ -103,6 +136,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     
     hoverTimeoutRef.current = setTimeout(() => {
       setIsHovering(true);
+      setCurrentlyPlaying(videoId); // Set this as the currently playing video
     }, 500); // 500ms delay before showing video
   };
 
@@ -113,6 +147,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     }
     setIsHovering(false);
     setIsVideoLoaded(false);
+    
+    // Only clear if this was the currently playing video
+    if (currentlyPlaying === videoId) {
+      setCurrentlyPlaying(null);
+    }
   };
 
   // Touch event handlers for mobile
@@ -128,6 +167,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     touchTimeoutRef.current = setTimeout(() => {
       setIsTouching(true);
       setIsHovering(true);
+      setCurrentlyPlaying(videoId); // Set this as the currently playing video
     }, 500);
   };
 
@@ -145,6 +185,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       setIsTouching(false);
       setIsHovering(false);
       setIsVideoLoaded(false);
+      
+      // Only clear if this was the currently playing video
+      if (currentlyPlaying === videoId) {
+        setCurrentlyPlaying(null);
+      }
     }
   };
 
@@ -161,6 +206,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       setIsTouching(false);
       setIsHovering(false);
       setIsVideoLoaded(false);
+      
+      // Only clear if this was the currently playing video
+      if (currentlyPlaying === videoId) {
+        setCurrentlyPlaying(null);
+      }
     }
   };
 
@@ -226,7 +276,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   // Check if we have a YouTube URL for hover preview
   const youtubeUrl = contentTypes.find(content => content.type === 'youtube')?.url;
-  const youtubeId = youtubeUrl ? getYouTubeId(youtubeUrl) : null;
+  const youtubePreviewId = youtubeUrl ? getYouTubeId(youtubeUrl) : null;
 
   useEffect(() => {
     return () => {
@@ -236,8 +286,18 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       if (touchTimeoutRef.current) {
         clearTimeout(touchTimeoutRef.current);
       }
+      
+      // Clean up video state when component unmounts
+      if (currentlyPlaying === videoId) {
+        setCurrentlyPlaying(null);
+      }
     };
-  }, []);
+  }, [currentlyPlaying, videoId, setCurrentlyPlaying]);
+
+  // Determine if we should show the video preview
+  const shouldShowPreview = (isHovering || isTouching) && 
+                           project.links.demo && 
+                           currentlyPlaying === videoId;
 
   return (
     <>
@@ -267,7 +327,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 />
                 
                 {/* YouTube preview overlay - now clickable */}
-                {(isHovering || isTouching) && project.links.demo && (
+                {shouldShowPreview && (
                   <div
                     className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
                     onClick={handleOverlayClick}
@@ -295,7 +355,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 )}
 
                 {/* Mobile tap indicator */}
-                {isTouchDevice && !isTouching && !isHovering && youtubeId && (
+                {isTouchDevice && !isTouching && !isHovering && youtubePreviewId && (
                   <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
                     Long press to preview
                   </div>

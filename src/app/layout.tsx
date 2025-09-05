@@ -5,11 +5,12 @@ import { ThemeProvider } from '@/components/contexts/ThemeContext';
 import { CategoryProvider } from '@/components/contexts/CategoryContext';
 import Header from '@/components/components/Header';
 import Footer from '@/components/components/Footer';
+import { VideoProvider } from '@/components/ui/ProjectCard';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
-
+<VideoProvider>  
       <html lang="en">
         <head>
           <title>Darshana Wijebahu | Full Stack Developer</title>
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </body>
         </CategoryProvider>
       </html>
+       </VideoProvider>
     </ThemeProvider>
   );
 }
