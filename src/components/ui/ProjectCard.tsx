@@ -15,27 +15,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [modalContent, setModalContent] = useState('');
   const [isHovering, setIsHovering] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const videoRef = useRef<HTMLIFrameElement>(null);
-  const isTouchDevice = typeof window !== 'undefined' && 'ontouchstart' in window;
+  const containerRef = useRef<HTMLDivElement>(null);
 
-
-const handleTouchStart = () => {
-  if (!isTouchDevice) return;
-  if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-  hoverTimeoutRef.current = setTimeout(() => {
-    setIsHovering(true);
-  }, 400); // long press delay for mobile
-};
-
-const handleTouchEnd = () => {
-  if (!isTouchDevice) return;
-  if (hoverTimeoutRef.current) {
-    clearTimeout(hoverTimeoutRef.current);
-    hoverTimeoutRef.current = null;
-  }
-};
+  // Detect if device is touch capable
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
   const detectContentType = (url: string): ModalType => {
     if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
     if (url.includes('figma.com')) return 'figma';
@@ -46,65 +38,63 @@ const handleTouchEnd = () => {
   };
 
   const getVideoSrc = (url?: string) => {
-  if (!url) return '';
+    if (!url) return '';
 
-  // YouTube handling (normal & shorts)
-  const youtubeMatch = url.match(
-    /(?:youtu\.be\/|youtube\.com\/(?:embed\/|watch\?v=|shorts\/))([a-zA-Z0-9_-]{11})/
-  );
-  if (youtubeMatch) {
-    const id = youtubeMatch[1];
-    return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=${id}`;
-  }
+    // YouTube handling (normal & shorts)
+    const youtubeMatch = url.match(
+      /(?:youtu\.be\/|youtube\.com\/(?:embed\/|watch\?v=|shorts\/))([a-zA-Z0-9_-]{11})/
+    );
+    if (youtubeMatch) {
+      const id = youtubeMatch[1];
+      return `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&loop=1&playlist=${id}`;
+    }
 
-  // Google Drive handling
-  const driveMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (driveMatch) {
-    return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
-  }
+    // Google Drive handling
+    const driveMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (driveMatch) {
+      return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+    }
 
-  return '';
-};
+    return '';
+  };
 
+  const handleContentClick = (
+    e: React.MouseEvent,
+    url: string,
+    type: ModalType
+  ) => {
+    e.preventDefault();
 
- const handleContentClick = (
-  e: React.MouseEvent,
-  url: string,
-  type: ModalType
-) => {
-  e.preventDefault();
+    // store click coords
+    document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
+    document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
 
-  // store click coords
-  document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
-  document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
-
-  setModalType(type);
-  setModalContent(url);
-  setIsModalOpen(true);
-};
-
-const handleOverlayClick = (e: React.MouseEvent) => {
-  e.preventDefault();
-
-  document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
-  document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
-
-  if (youtubeId) {
-    setModalType("youtube");
-    setModalContent(youtubeUrl ?? "");
+    setModalType(type);
+    setModalContent(url);
     setIsModalOpen(true);
-  } else if (project.ModalType === "image") {
-    setModalType("image");
-    setModalContent(project.image ?? "");
-    setIsModalOpen(true);
-  } else if (contentTypes.length > 0) {
-    const firstContent = contentTypes[0];
-    setModalType(firstContent.type);
-    setModalContent(firstContent.url);
-    setIsModalOpen(true);
-  }
-};
+  };
 
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
+    document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
+
+    if (youtubeId) {
+      setModalType("youtube");
+      setModalContent(youtubeUrl ?? "");
+      setIsModalOpen(true);
+    } else if (project.ModalType === "image") {
+      setModalType("image");
+      setModalContent(project.image ?? "");
+      setIsModalOpen(true);
+    } else if (contentTypes.length > 0) {
+      const firstContent = contentTypes[0];
+      setModalType(firstContent.type);
+      setModalContent(firstContent.url);
+      setIsModalOpen(true);
+    }
+  };
 
   const handleMouseEnter = () => {
     if (hoverTimeoutRef.current) {
@@ -123,6 +113,55 @@ const handleOverlayClick = (e: React.MouseEvent) => {
     }
     setIsHovering(false);
     setIsVideoLoaded(false);
+  };
+
+  // Touch event handlers for mobile
+  const handleTouchStart = () => {
+    if (!isTouchDevice) return;
+    
+    // Clear any existing timeout
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+    }
+    
+    // Set a timeout for long press (500ms)
+    touchTimeoutRef.current = setTimeout(() => {
+      setIsTouching(true);
+      setIsHovering(true);
+    }, 500);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isTouchDevice) return;
+    
+    // Clear the timeout if user lifts finger before long press duration
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+      touchTimeoutRef.current = null;
+    }
+    
+    // If we were in a long press state, reset it
+    if (isTouching) {
+      setIsTouching(false);
+      setIsHovering(false);
+      setIsVideoLoaded(false);
+    }
+  };
+
+  const handleTouchMove = () => {
+    if (!isTouchDevice) return;
+    
+    // If user moves finger during touch, cancel the long press
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+      touchTimeoutRef.current = null;
+    }
+    
+    if (isTouching) {
+      setIsTouching(false);
+      setIsHovering(false);
+      setIsVideoLoaded(false);
+    }
   };
 
   const getYouTubeId = (url: string): string | null => {
@@ -194,6 +233,9 @@ const handleOverlayClick = (e: React.MouseEvent) => {
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
       }
+      if (touchTimeoutRef.current) {
+        clearTimeout(touchTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -207,10 +249,12 @@ const handleOverlayClick = (e: React.MouseEvent) => {
       >
         <div 
           className="project-image-container overflow-hidden rounded-xl relative"
-          onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
-          onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onTouchMove={handleTouchMove}
+          ref={containerRef}
         >
           <div className="project-image-placeholder relative">
             {project.image ? (
@@ -223,35 +267,39 @@ const handleOverlayClick = (e: React.MouseEvent) => {
                 />
                 
                 {/* YouTube preview overlay - now clickable */}
-{isHovering && project.links.demo && (
-  <div
-    className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
-    onClick={handleOverlayClick}
-    style={{ cursor: 'pointer' }}
-  >
-    <div className="w-full h-full">
-      <iframe
-        ref={videoRef}
-        className="w-full h-full"
-        src={getVideoSrc(project.links.demo)}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        onLoad={() => setIsVideoLoaded(true)}
-        style={{ pointerEvents: 'none' }}
-      ></iframe>
-    </div>
+                {(isHovering || isTouching) && project.links.demo && (
+                  <div
+                    className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
+                    onClick={handleOverlayClick}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="w-full h-full">
+                      <iframe
+                        ref={videoRef}
+                        className="w-full h-full"
+                        src={getVideoSrc(project.links.demo)}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        onLoad={() => setIsVideoLoaded(true)}
+                        style={{ pointerEvents: 'none' }}
+                      ></iframe>
+                    </div>
 
-    {!isVideoLoaded && (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="loader">Loading...</div>
-      </div>
-    )}
-  </div>
-)}
+                    {!isVideoLoaded && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="loader">Loading...</div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
-
-
+                {/* Mobile tap indicator */}
+                {isTouchDevice && !isTouching && !isHovering && youtubeId && (
+                  <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                    Long press to preview
+                  </div>
+                )}
               </>
             ) : (
               <span>[Project Screenshot]</span>
