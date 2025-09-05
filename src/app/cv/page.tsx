@@ -522,9 +522,13 @@ export default function CVPage() {
                       </div>
                     </div>
                     <ul className="experience-list">
-                      <li>Collaborated on frontend and backend tasks for web and mobile applications (React, React Native)</li>
-                      <li>Worked on API integration, Redux state management, and debugging legacy code</li>
-                      <li>Followed Agile practices and participated in code reviews and sprint planning</li>
+                      <li>Completed a 7-month mandatory third-year internship (Grade A-), contributing to the development of the MyiFi, LuckyWallet Revamp, and SfinOTO mobile apps.</li>
+<li>Converted key screens and the codebase from JavaScript to TypeScript and applied Atomic Design principles to create reusable components.</li>
+<li>Built a reusable camera component using react-native-vision-camera (TypeScript) and implemented AsyncStorage for offline access.</li>
+<li>Integrated REST APIs for KYC, account data, and payments; implemented biometric authentication and Redux Toolkit for state management.</li>
+<li>Modernized UI screens based on Figma designs, prepared Android test builds (APK/AAB), and fixed cross-platform issues (including iOS camera bugs).</li>
+<li>Authored technical articles sharing learnings (React Native + TypeScript, camera component, app security) and maintained project documentation; participated in daily standups with backend and QA teams.</li>
+
                     </ul>
                   </motion.div>
 
@@ -554,41 +558,93 @@ export default function CVPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <div className="project-grid">
-                    <motion.div 
-                      className="project-card"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <h3>MyiFi Mobile Wallet App</h3>
-                      <span className="project-tag">React Native</span>
-                      <p>Mobile wallet solution for financial transactions with React Native and Redux</p>
-                    </motion.div>
-                    <motion.div 
-                      className="project-card"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.1 }}
-                    >
-                      <h3>LuckyWallet Revamp App</h3>
-                      <span className="project-tag">UI/UX Design</span>
-                      <p>Revamped existing e-wallet application with modern UI/UX design</p>
-                    </motion.div>
-                    <motion.div 
-                      className="project-card"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                    >
-                      <h3>SFin App (Singer Finance)</h3>
-                      <span className="project-tag">API Integration</span>
-                      <p>API integration, Redux state management, and bug fixes</p>
-                    </motion.div>
-                  </div>
+<div className="project-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {/* CardioAI */}
+  <motion.div
+    className="project-card p-5 rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-transform transform hover:-translate-y-1"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4 }}
+  >
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white">CardioAI – AI-Powered Music Therapy</h3>
+    <span className="project-tag text-xs text-gray-500">AI & Machine Learning</span>
+    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+      Developed a multimodal AI platform integrating Python, Librosa, LightGBM, and TensorFlow with React Native for real-time heart rate streaming and personalized music therapy.
+    </p>
+    <p className="mt-2 text-xs text-gray-500">Tech Stack: Python, React Native, Flask, TensorFlow, Redux</p>
+    <a href="https://youtu.be/Cj91poM8vm8" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm mt-3 inline-block">Demo Video</a>
+  </motion.div>
+
+  {/* ElectraTrack */}
+  <motion.div
+    className="project-card p-5 rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-transform transform hover:-translate-y-1"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: 0.1 }}
+  >
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white">ElectraTrack – Transformer Data Management</h3>
+    <span className="project-tag text-xs text-gray-500">Desktop Application</span>
+    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+      Python Tkinter application for the Ceylon Electricity Board automating transformer tracking, real-time search, secure login, and Excel export.
+    </p>
+    <p className="mt-2 text-xs text-gray-500">Tech Stack: Python, Tkinter, Pandas, OpenPyXL</p>
+    <a href="https://youtu.be/eVZFVFrxCCw" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm mt-3 inline-block">Demo Video</a>
+  </motion.div>
+
+  {/* PhishGuard */}
+  <motion.div
+    className="project-card p-5 rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-transform transform hover:-translate-y-1"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: 0.2 }}
+  >
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white">PhishGuard – AI Phishing SMS Detection</h3>
+    <span className="project-tag text-xs text-gray-500">Mobile Application</span>
+    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+      React Native app with real-time phishing detection, AI text-classification, light/dark modes, and manual/automatic scanning.
+    </p>
+    <p className="mt-2 text-xs text-gray-500">Tech Stack: React Native, Redux Thunk, TypeScript</p>
+    <a href="https://youtu.be/h3SN8Pj117k" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm mt-3 inline-block">Demo Video | APK</a>
+  </motion.div>
+
+  {/* MyiFi, LuckyWallet & SFin */}
+  <motion.div
+    className="project-card p-5 rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-transform transform hover:-translate-y-1"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: 0.3 }}
+  >
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white">MyiFi, LuckyWallet & SFin</h3>
+    <span className="project-tag text-xs text-gray-500">Internship Projects</span>
+    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+      Contributed to three fintech mobile apps focusing on front-end development, API integrations, UI/UX modernization, and biometric authentication.
+    </p>
+    <p className="mt-2 text-xs text-gray-500">Tech Stack: React Native, TypeScript, Redux Toolkit, Firebase, Figma</p>
+  </motion.div>
+
+  {/* QA Automation */}
+  <motion.div
+    className="project-card p-5 rounded-2xl shadow-lg bg-white dark:bg-gray-800 hover:shadow-xl transition-transform transform hover:-translate-y-1"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: 0.4 }}
+  >
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white">QA Automation – API & UI Testing</h3>
+    <span className="project-tag text-xs text-gray-500">Software Quality Assurance</span>
+    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+      Automated testing framework using Selenium, RestAssured, Cucumber, and Jenkins CI/CD pipelines, reducing manual QA efforts by 50%.
+    </p>
+    <p className="mt-2 text-xs text-gray-500">Tech Stack: Selenium, RestAssured, Cucumber, TestNG, Jenkins, Git</p>
+    <a href="https://github.com/ShanCodeWay/ITQA_Assignment_Group_41" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm mt-3 inline-block">GitHub</a>
+  </motion.div>
+</div>
+
+
                 </motion.div>
               </section>
 

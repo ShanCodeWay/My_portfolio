@@ -27,7 +27,7 @@ export const projectsAI: Project[] = [
       "Real-time stress detection model with personalized activity recommendations based on physiological signals.",
     tags: ["Python", "Keras"],
     links: {
-      demo: "https://youtu.be/your-stress-demo",
+      //demo: "https://youtu.be/your-stress-demo",
     },
     metadata: {
       author: "Darshana Wijebahu",
