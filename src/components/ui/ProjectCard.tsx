@@ -17,8 +17,24 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const isTouchDevice = typeof window !== 'undefined' && 'ontouchstart' in window;
 
 
+const handleTouchStart = () => {
+  if (!isTouchDevice) return;
+  if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+  hoverTimeoutRef.current = setTimeout(() => {
+    setIsHovering(true);
+  }, 400); // long press delay for mobile
+};
+
+const handleTouchEnd = () => {
+  if (!isTouchDevice) return;
+  if (hoverTimeoutRef.current) {
+    clearTimeout(hoverTimeoutRef.current);
+    hoverTimeoutRef.current = null;
+  }
+};
   
   const detectContentType = (url: string): ModalType => {
     if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
@@ -191,8 +207,10 @@ const handleOverlayClick = (e: React.MouseEvent) => {
       >
         <div 
           className="project-image-container overflow-hidden rounded-xl relative"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
+          onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div className="project-image-placeholder relative">
             {project.image ? (
