@@ -28,8 +28,8 @@ const QRCodeResume: React.FC<QRCodeResumeProps> = ({
     <div className={`${positionClass} ${className}`} style={position !== 'static' ? { top: '10rem', right: '4rem' } : {}}>
       <div className="p-2 rounded-lg bg-[var(--hero-card-bg)] border border-[var(--hero-social-border)] shadow-lg">
         <QRCodeCanvas
-          value={url}
-          size={size}
+          value="https://drive.google.com/uc?export=download&id=11WKmaAOa38BwZxCH3OMIaSbGZGsDPSah"
+          size={80}
           bgColor={theme === 'dark' ? 'rgba(17, 24, 39, 0.9)' : 'rgba(255, 255, 255, 0.9)'}
           fgColor={theme === 'dark' ? '#ffffff' : '#000000'}
           level="H"
