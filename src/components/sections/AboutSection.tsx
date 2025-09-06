@@ -77,6 +77,7 @@ export default function AboutSection() {
                     alt="Darshana Wijebahu"
                     fill
                     className="img-fit"
+                    priority
                     />
 
               <div className="profile-glow"></div>

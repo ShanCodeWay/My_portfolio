@@ -103,6 +103,7 @@ export default function CVPage() {
             width={200}
             height={200}
             className="avatar-image"
+            priority
           />
         </motion.div>
       </div>
