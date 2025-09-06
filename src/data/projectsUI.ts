@@ -18,7 +18,7 @@ export const projectsUI: Project[] = [
     },
     subCategory: "UX/UI Design",
     mainCategory: "Design",
-    image: "/images/projects/eventify_UI.png",
+    image: "/images/projects/eventify_UI.webp",
     priority: 6,
   },
   {
@@ -38,7 +38,7 @@ export const projectsUI: Project[] = [
     },
      subCategory: "UX/UI Design",
     mainCategory: "Design",
-    image: "/images/projects/astronova.png",
+    image: "/images/projects/astronova.webp",
   },
   {
   id: "marisha-coco-prototype",
@@ -55,7 +55,7 @@ export const projectsUI: Project[] = [
   },
   subCategory: "UI/UX Design",
   mainCategory: "Design Projects",
-  image: "/images/projects/MarishaCocoPrototype.png"
+  image: "/images/projects/MarishaCocoPrototype.webp"
 }
 
 ];

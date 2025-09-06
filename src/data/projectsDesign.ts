@@ -7,7 +7,7 @@ export const projectsDesign: Project[] = [
   //   description: "Designed creative flyers and posters for events and campaigns.",
   //   tags: ["Photoshop", "Canva", "Illustrator"],
   //   links: {
-  //     demo: "/images/projects/Automated-computer-table-and-chair-System.png",
+  //     demo: "/images/projects/Automated-computer-table-and-chair-System.webp",
   //   },
   //   metadata: {
   //     author: "Darshana Wijebahu",
@@ -33,7 +33,7 @@ export const projectsDesign: Project[] = [
     },
     subCategory: "3D Modeling / Animation",
     mainCategory: "design",
-    image: "/images/projects/Automated-computer-table-and-chair-System.png",
+    image: "/images/projects/Automated-computer-table-and-chair-System.webp",
   },
   {
     id: "helicopter",
@@ -50,7 +50,7 @@ export const projectsDesign: Project[] = [
     },
     subCategory: "3D Modeling / Animation",
     mainCategory: "design",
-    image: "/images/projects/Helicopter-3D-Model.png",
+    image: "/images/projects/Helicopter-3D-Model.webp",
   },
   {
     id: "mora-coffee-sketchup-video",
@@ -67,7 +67,7 @@ export const projectsDesign: Project[] = [
     },
     subCategory: "3D Modeling / Animation",
     mainCategory: "design",
-    image: "/images/projects/MORA-COFEE-SketchUp-video.png",
+    image: "/images/projects/MORA-COFEE-SketchUp-video.webp",
   },
 
   {
@@ -76,7 +76,7 @@ export const projectsDesign: Project[] = [
   description: "Designed a promotional flyer using Blender for Siyothsaraniya event.",
   tags: ["Blender", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/Siyothsaraniya-Flyer.png",
+    //demo: "/images/projects/flyers/Siyothsaraniya-Flyer.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -86,7 +86,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/Siyothsaraniya-Flyer.png"
+  image: "/images/projects/flyers/Siyothsaraniya-Flyer.webp"
 },
 {
   id: "earthday-2020",
@@ -94,7 +94,7 @@ export const projectsDesign: Project[] = [
   description: "Created a flyer for Earth Day 2020 campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/EarthDay-2020.png",
+    //demo: "/images/projects/flyers/EarthDay-2020.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -104,7 +104,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/EarthDay-2020.png"
+  image: "/images/projects/flyers/EarthDay-2020.webp"
 },
 {
   id: "environmentday-2021",
@@ -112,7 +112,7 @@ export const projectsDesign: Project[] = [
   description: "Designed flyer for World Environment Day 2021 for the Past Pupils' Association.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/EnvironmentDay-2021.png",
+    //demo: "/images/projects/flyers/EnvironmentDay-2021.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -122,7 +122,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/EnvironmentDay-2021.png"
+  image: "/images/projects/flyers/EnvironmentDay-2021.webp"
 },
 {
   id: "forestday-2022",
@@ -130,7 +130,7 @@ export const projectsDesign: Project[] = [
   description: "Designed a creative flyer for International Day of Forests 2022.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/ForestDay-2022.png",
+    //demo: "/images/projects/flyers/ForestDay-2022.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -140,7 +140,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/ForestDay-2022.png"
+  image: "/images/projects/flyers/ForestDay-2022.webp"
 },
 {
   id: "worldenvironmentday-2022",
@@ -148,7 +148,7 @@ export const projectsDesign: Project[] = [
   description: "Designed a flyer for World Environment Day 2022 campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/WorldEnvironmentDay-2022.png",
+    //demo: "/images/projects/flyers/WorldEnvironmentDay-2022.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -158,7 +158,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/WorldEnvironmentDay-2022.png"
+  image: "/images/projects/flyers/WorldEnvironmentDay-2022.webp"
 },
 {
   id: "happynewyear-2023",
@@ -166,7 +166,7 @@ export const projectsDesign: Project[] = [
   description: "Created a Happy New Year flyer design for 2023 celebrations.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/HappyNewYear-2023.png",
+    //demo: "/images/projects/flyers/HappyNewYear-2023.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -176,7 +176,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/HappyNewYear-2023.png"
+  image: "/images/projects/flyers/HappyNewYear-2023.webp"
 },
 {
   id: "earthday-2023",
@@ -184,7 +184,7 @@ export const projectsDesign: Project[] = [
   description: "Designed flyer for Earth Day 2023 campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/EarthDay-2023.jpg",
+    //demo: "/images/projects/flyers/EarthDay-2023.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -194,7 +194,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/EarthDay-2023.jpg"
+  image: "/images/projects/flyers/EarthDay-2023.webp"
 },
 {
   id: "wildlifeday-2023",
@@ -202,7 +202,7 @@ export const projectsDesign: Project[] = [
   description: "Designed a flyer for World Wildlife Day 2023 campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/WildLifeDay-2023.jpg",
+    //demo: "/images/projects/flyers/WildLifeDay-2023.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -212,7 +212,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/WildLifeDay-2023.jpg"
+  image: "/images/projects/flyers/WildLifeDay-2023.webp"
 },
 {
   id: "earthday-2024",
@@ -220,7 +220,7 @@ export const projectsDesign: Project[] = [
   description: "Created flyer for Earth Day 2024 campaign by Past Pupils' Association.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/EarthDay-2024.jpg",
+    //demo: "/images/projects/flyers/EarthDay-2024.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -230,7 +230,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/EarthDay-2024.jpg"
+  image: "/images/projects/flyers/EarthDay-2024.webp"
 },
 {
   id: "worldenvironmenthealthday-2024",
@@ -238,7 +238,7 @@ export const projectsDesign: Project[] = [
   description: "Designed flyer for World Environment Health Day 2024 awareness campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/EnvironmentHealthDay-2024.jpg",
+    //demo: "/images/projects/flyers/EnvironmentHealthDay-2024.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -248,7 +248,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/EnvironmentHealthDay-2024.jpg"
+  image: "/images/projects/flyers/EnvironmentHealthDay-2024.webp"
 },
 {
   id: "happynewyear-2025",
@@ -256,7 +256,7 @@ export const projectsDesign: Project[] = [
   description: "Created Happy New Year flyer design for 2025 greetings campaign.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/HappyNewYear-2025.jpg",
+    //demo: "/images/projects/flyers/HappyNewYear-2025.webp",
   },
   metadata: {
     author: "Darshana Wijebahu",
@@ -266,7 +266,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/HappyNewYear-2025.jpg"
+  image: "/images/projects/flyers/HappyNewYear-2025.webp"
 },
 {
   id: "elephantday-2025",
@@ -274,7 +274,7 @@ export const projectsDesign: Project[] = [
   description: "Designed flyer for Elephant Day 2025 event.",
   tags: ["Photoshop", "Graphic Design"],
   links: {
-    //demo: "/images/projects/flyers/ElephantDay-2025.png",
+    //demo: "/images/projects/flyers/ElephantDay-2025.webp",
    
   },
   metadata: {
@@ -285,7 +285,7 @@ export const projectsDesign: Project[] = [
   subCategory: "Graphic Design",
   mainCategory: "design",
   ModalType: "image",
-  image: "/images/projects/flyers/ElephantDay-2025.png"
+  image: "/images/projects/flyers/ElephantDay-2025.webp"
 }
 
 ];

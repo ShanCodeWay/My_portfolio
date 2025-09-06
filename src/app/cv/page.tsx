@@ -98,7 +98,7 @@ export default function CVPage() {
           whileHover={{ scale: 1.05 }}
         >
           <Image
-            src="/images/profile/avatar.png"
+            src="/images/profile/avatar.webp"
             alt="Darshana Wijebahu"
             width={200}
             height={200}
@@ -250,7 +250,7 @@ export default function CVPage() {
                       <div className="timeline-marker"></div>
                       <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/cvIcons/moratuwaLogo.png" alt="University of Moratuwa" className="section-content-icon" />
+                          <img src="/images/cvIcons/moratuwaLogo.webp" alt="University of Moratuwa" className="section-content-icon" />
                           <div>
                             <h3>B.Sc. (Hons) in Information Technology and Management</h3>
                             <p className="timeline-period">2021 – 2025 (Expected)</p>
@@ -269,7 +269,7 @@ export default function CVPage() {
                       <div className="timeline-marker"></div>
                       <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/cvIcons/CALogo.png" alt="Institute of Chartered Accountants" className="section-content-icon" />
+                          <img src="/images/cvIcons/CALogo.webp" alt="Institute of Chartered Accountants" className="section-content-icon" />
                           <div>
                             <h3>Accounting & Business / Business Level 2</h3>
                             <p className="timeline-period">Since 2019</p>
@@ -281,7 +281,7 @@ export default function CVPage() {
                    <div className="timeline-marker"></div>
                     <div className="timeline-content">
                         <div className="education-header">
-                          <img src="/images/cvIcons/poramadullaLogo.png" alt="poramadullaLogo" className="section-content-icon" />
+                          <img src="/images/cvIcons/poramadullaLogo.webp" alt="poramadullaLogo" className="section-content-icon" />
                           <div>
                             <h3>Poramadulla Central College, Hanguranketha</h3>
                             <p className="timeline-period">2019</p>
@@ -331,7 +331,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/fitmoments_logo.jpg" alt="FIT Moments" className="section-content-icon" />
+                      <img src="/images/cvIcons/fitmoments_logo.webp" alt="FIT Moments" className="section-content-icon" />
                       <div>
                         <h3>Video Editor</h3>
                         <span className="experience-period">FIT Moments (Faculty of IT Students' Union, UoM) — Aug 2023 – Jul 2024 (1 year)</span>
@@ -351,7 +351,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/moraSpiritLogo.png" alt="MoraSpirit Organization" className="section-content-icon" />
+                      <img src="/images/cvIcons/moraSpiritLogo.webp" alt="MoraSpirit Organization" className="section-content-icon" />
                       <div>
                         <h3>Video Editor</h3>
                         <span className="experience-period">MoraSpirit Organization — Jun 2023 – Jun 2024 (1 year, 1 month)</span>
@@ -371,7 +371,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/seds_mora_logo.jpg" alt="FIT Moments" className="section-content-icon" />
+                      <img src="/images/cvIcons/seds_mora_logo.webp" alt="FIT Moments" className="section-content-icon" />
                       <div>
                         <h3>Video Editor</h3>
                         <span className="experience-period">FIT Moments (Faculty of IT Students' Union, UoM) — Aug 2023 – Jul 2024 (1 year)</span>
@@ -391,7 +391,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/nTeamLOGO.png" alt="MoraSpirit Organization" className="section-content-icon" />
+                      <img src="/images/cvIcons/nTeamLOGO.webp" alt="MoraSpirit Organization" className="section-content-icon" />
                       <div>
                         <h3>member</h3>
                         <span className="experience-period">Nature Team — Jun 2023 – Jun 2024 (1 year, 1 month)</span>
@@ -434,7 +434,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4 }}
                     >
-                      <img src="/images/cvIcons/openUniLogo.png" alt="Open University of Sri Lanka" className="section-content-icon" />
+                      <img src="/images/cvIcons/openUniLogo.webp" alt="Open University of Sri Lanka" className="section-content-icon" />
                       HRM Certificate Course – The Open University of Sri Lanka (2020)
                     </motion.li>
                     <motion.li 
@@ -443,7 +443,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.1 }}
                     >
-                      <img src="/images/cvIcons/CALogo.png" alt="Institute of Chartered Accountants of Sri Lanka" className="section-content-icon" />
+                      <img src="/images/cvIcons/CALogo.webp" alt="Institute of Chartered Accountants of Sri Lanka" className="section-content-icon" />
                       Business Level 2 – Institute of Chartered Accountants of Sri Lanka (2019)
                     </motion.li>
                     <motion.li 
@@ -452,7 +452,7 @@ export default function CVPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                      <img src="/images/cvIcons/sibaLogo.png" alt="SIBA Campus" className="section-content-icon" />
+                      <img src="/images/cvIcons/sibaLogo.webp" alt="SIBA Campus" className="section-content-icon" />
                       Diploma in Information Technology – SIBA Campus (2019)
                     </motion.li>
                   </ul>
@@ -495,7 +495,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/cebLogo.png" alt="Ceylon Electricity Board" className="section-content-icon" />
+                      <img src="/images/cvIcons/cebLogo.webp" alt="Ceylon Electricity Board" className="section-content-icon" />
                       <div>
                         <h3>Provision of Practical Training (Internship)</h3>
                         <span className="experience-period">Ceylon Electricity Board (CEB) — Jul 2024 – Dec 2024 (6 months)</span>
@@ -516,7 +516,7 @@ export default function CVPage() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
                     <div className="experience-header">
-                      <img src="/images/cvIcons/ScienterLogo.png" alt="Scienter Technologies" className="section-content-icon" />
+                      <img src="/images/cvIcons/ScienterLogo.webp" alt="Scienter Technologies" className="section-content-icon" />
                       <div>
                         <h3>Software Engineer Intern</h3>
                         <span className="experience-period">Scienter Technologies (Pte) Ltd — Dec 2023 – Jun 2024 (7 months)</span>
@@ -810,7 +810,7 @@ export default function CVPage() {
       transition={{ duration: 0.3 }}
     >
       <Image
-        src="/images/profile/avatar.png"
+        src="/images/profile/avatar.webp"
         alt="Darshana Wijebahu"
         width={400}
         height={400}

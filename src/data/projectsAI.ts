@@ -18,7 +18,7 @@ export const projectsAI: Project[] = [
     subCategory: "AI/ML Projects",
     mainCategory: "AI & Machine Learning",
     priority: 1,
-    image: "/images/projects/cardioAi.png",
+    image: "/images/projects/cardioAi.webp",
   },
   {
     id: "stress-detection",

@@ -20,7 +20,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/firebase-react-native-article.png",
+    image: "/images/projects/firebase-react-native-article.webp",
   },
 
     {
@@ -40,7 +40,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/react-native-camera-article.jpg",
+    image: "/images/projects/react-native-camera-article.webp",
   }
   ,
 
@@ -61,7 +61,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/biometric-authentication.jpg",
+    image: "/images/projects/biometric-authentication.webp",
     priority: 7,
   },
     {
@@ -82,7 +82,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/internship-journey.png"
+    image: "/images/projects/internship-journey.webp"
   }
   ,
     {
@@ -103,7 +103,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/react-native-app-security-biometric-authentication.png",
+    image: "/images/projects/react-native-app-security-biometric-authentication.webp",
     priority: 8,
   }
   ,
@@ -125,7 +125,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/ai-vs-blender-3d-modeling.png"
+    image: "/images/projects/ai-vs-blender-3d-modeling.webp"
   }
   ,
     {
@@ -146,7 +146,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/building-real-time-data-driven-apps-with-firebase-and-react-native.png"
+    image: "/images/projects/building-real-time-data-driven-apps-with-firebase-and-react-native.webp"
   }
    ,
     {
@@ -167,7 +167,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/a-journey-from-developer-to-ui-ux-designer.png"
+    image: "/images/projects/a-journey-from-developer-to-ui-ux-designer.webp"
   }
     ,
     {
@@ -188,7 +188,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/expo-vs-react-native-cli.png"
+    image: "/images/projects/expo-vs-react-native-cli.webp"
   }
   ,
     {
@@ -209,7 +209,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/why-choose-react-over-flutter.png"
+    image: "/images/projects/why-choose-react-over-flutter.webp"
   }
   ,
     {
@@ -230,7 +230,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/creating-the-fit-sixes-memoir.png"
+    image: "/images/projects/creating-the-fit-sixes-memoir.webp"
   }
   ,
     {
@@ -251,7 +251,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/getting-started-state-management-with-redux.png"
+    image: "/images/projects/getting-started-state-management-with-redux.webp"
   }
    ,
     {
@@ -272,7 +272,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/converting-javascript-to-typescript-react-native.png"
+    image: "/images/projects/converting-javascript-to-typescript-react-native.webp"
   }
    ,
     {
@@ -293,7 +293,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/building-react-native-camera-component.png"
+    image: "/images/projects/building-react-native-camera-component.webp"
   }
   ,
     {
@@ -314,7 +314,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/developers-guide-to-android-emulator-setup-and-secrets-tips.png"
+    image: "/images/projects/developers-guide-to-android-emulator-setup-and-secrets-tips.webp"
   }
     ,
     {
@@ -335,7 +335,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/react-native-with-typescript.png"
+    image: "/images/projects/react-native-with-typescript.webp"
   }
     ,
     {
@@ -356,7 +356,7 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/sketchup-introduction.png"
+    image: "/images/projects/sketchup-introduction.webp"
   }
     ,
     {
@@ -377,6 +377,6 @@ export const projectsWriting: Project[] = [
     },
     subCategory: "Articles",
     mainCategory: "Writing",
-    image: "/images/projects/how-modern-technology-is-helping-to-reduce-elephant-human-conflicts-in-sri-lanka.png"
+    image: "/images/projects/how-modern-technology-is-helping-to-reduce-elephant-human-conflicts-in-sri-lanka.webp"
   }
 ];

@@ -16,7 +16,7 @@ export const projectsVideo: Project[] = [
     },
     subCategory: "Video Editing",
     mainCategory: "Video Projects",
-    image: "/images/projects/Siyothsaraniya.png",
+    image: "/images/projects/Siyothsaraniya.webp",
   },
   {
     id: "memories-of-batch20-fit",
@@ -33,7 +33,7 @@ export const projectsVideo: Project[] = [
     },
     subCategory: "Video Editing",
     mainCategory: "Video Projects",
-    image: "/images/projects/Memories-of-Batch20-FIT.jpg",
+    image: "/images/projects/Memories-of-Batch20-FIT.webp",
   },
  
   {
@@ -67,7 +67,7 @@ If you enjoyed this video, don’t forget to like, comment, and subscribe for mo
   },
   subCategory: "Video Editing",
   mainCategory: "Video Projects",
-  image: "/images/projects/FITSixes2024.png",
+  image: "/images/projects/FITSixes2024.webp",
 },
 
 {
@@ -101,7 +101,7 @@ If you enjoyed this promo, hit like, comment, and subscribe for more creative pr
   },
   subCategory: "Motion Graphics",
   mainCategory: "Video Projects",
-  image: "/images/projects/FITSixesTypographyPromo.png",
+  image: "/images/projects/FITSixesTypographyPromo.webp",
 },
 {
   id: "FitSixesPromoAfterEffects2024",
@@ -134,7 +134,7 @@ If you enjoyed this promo, please like, comment, and subscribe for more creative
   },
   subCategory: "Video Editing",
   mainCategory: "Video Projects",
-  image: "/images/projects/FITSixesPromoAfterEffects2024.png",
+  image: "/images/projects/FITSixesPromoAfterEffects2024.webp",
 },
 
 {
@@ -167,7 +167,7 @@ If you enjoyed this animation, please like, comment, and subscribe for more moti
   },
   subCategory: "Motion Graphics",
   mainCategory: "Video Projects",
-  image: "/images/projects/FITSixesLogoAnimation2024.png",
+  image: "/images/projects/FITSixesLogoAnimation2024.webp",
 },
 
 {
@@ -197,7 +197,7 @@ An exciting blend of creativity, storytelling, and post-production to showcase t
   },
   subCategory: "Motion Graphics",
   mainCategory: "Video Projects",
-  image: "/images/projects/GameTrailer2024.png",
+  image: "/images/projects/GameTrailer2024.webp",
 },
 
 {
@@ -229,7 +229,7 @@ A project filled with creativity, collaboration, and passion for storytelling th
   },
   subCategory: "Video Editing",
   mainCategory: "Video Projects",
-  image: "/images/projects/FITSixesMemoir2023.png",
+  image: "/images/projects/FITSixesMemoir2023.webp",
 },
 
 {
@@ -261,7 +261,7 @@ Edited and crafted using **DaVinci Resolve** & **Adobe After Effects**, combinin
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraApril2024.jpg",
+  image: "/images/projects/SEDSMoraApril2024.webp",
 },
 {
   id: "SEDSMoraObservation2024",
@@ -289,7 +289,7 @@ Edited using **DaVinci Resolve**, this short captures the essence of stargazing,
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraObservation2024.jpg",
+  image: "/images/projects/SEDSMoraObservation2024.webp",
 },
 {
   id: "SEDSMoraMarch2024",
@@ -318,7 +318,7 @@ As a proud SEDS Mora member, I crafted this astronomy series episode with **DaVi
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraMarch2024.jpg",
+  image: "/images/projects/SEDSMoraMarch2024.webp",
 },
 {
   id: "SEDSMoraFeb2024",
@@ -346,7 +346,7 @@ A cosmic journey video made for **SEDS Mora**, featuring highlights of the Febru
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraFeb2024.jpg",
+  image: "/images/projects/SEDSMoraFeb2024.webp",
 },
 {
   id: "SEDSMoraJan2024",
@@ -374,7 +374,7 @@ Created for **SEDS Mora**, this episode explores the celestial wonders visible i
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraJan2024.jpg",
+  image: "/images/projects/SEDSMoraJan2024.webp",
 },
 {
   id: "SEDSMoraOct2023",
@@ -402,7 +402,7 @@ An astronomy highlight video made for **SEDS Mora**, capturing celestial wonders
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraOct2023.jpg",
+  image: "/images/projects/SEDSMoraOct2023.webp",
 },
 {
   id: "SEDSMoraAug2023",
@@ -430,7 +430,7 @@ Created for **SEDS Mora**, this astronomy series episode explores the night sky 
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraAug2023.jpg",
+  image: "/images/projects/SEDSMoraAug2023.webp",
 },
 {
   id: "SEDSMoraMay2023",
@@ -458,7 +458,7 @@ An astronomy highlight video made for **SEDS Mora**, featuring celestial events 
   },
   subCategory: "Video Editing",
   mainCategory: "Space Projects",
-  image: "/images/projects/SEDSMoraMay2023.jpg",
+  image: "/images/projects/SEDSMoraMay2023.webp",
 },
 {
   id: "AfterEffectsTuitionAd",
@@ -475,7 +475,7 @@ An astronomy highlight video made for **SEDS Mora**, featuring celestial events 
   },
   subCategory: "Promotional Videos",
   mainCategory: "Video Projects",
-  image: "/images/projects/AfterEffectsTuitionAd.png"
+  image: "/images/projects/AfterEffectsTuitionAd.webp"
 }
 
 

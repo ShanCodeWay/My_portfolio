@@ -73,7 +73,7 @@ export default function AboutSection() {
           <div className="profile-container scroll-animate">
             <div className="profile-image">
              <Image
-                    src="/images/profile/avatar2.jpg"
+                    src="/images/profile/avatar2.webp"
                     alt="Darshana Wijebahu"
                     fill
                     className="img-fit"

@@ -96,12 +96,14 @@ export default function HeroSection(): React.JSX.Element {
                 transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
               >
                 <Image
-                  src="/images/profile/avatar.png"
-                  alt="Darshana Wijebahu"
-                  fill
-                  sizes="(max-width: 768px) 300px, 280px"  
-                  className="object-cover rounded-full"
-                />
+            src="/images/profile/avatar.webp"
+            alt="Darshana Wijebahu"
+            fill
+            sizes="(max-width: 768px) 300px, 280px"
+            className="object-cover rounded-full"
+            priority
+          />
+
               </motion.div>
 
               {/* Shine overlay DIV */}

@@ -50,14 +50,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Transforming ideas into functional digital solutions',
     category: 'software',
     images: [
-      'images/background/CategoryBannerImages/MobileBackground.png',
-      'images/background/CategoryBannerImages/WebBackground.png',
-      'images/background/CategoryBannerImages/DesktopBackground.png'
+      'images/background/CategoryBannerImages/MobileBackground.webp',
+      'images/background/CategoryBannerImages/WebBackground.webp',
+      'images/background/CategoryBannerImages/DesktopBackground.webp'
     ],
     accentColorLight: '#4ADEDE',   // Soft Teal Cyan
     accentColorDark: '#00D1D1',    // Deep Electric Teal Glow
     icon: '💻',
-    backgroundImage: 'images/background/CategoryBannerImages/softwarebackgroundImage.png' 
+    backgroundImage: 'images/background/CategoryBannerImages/softwarebackgroundImage.webp' 
   },
   {
     id: 'ai',
@@ -66,14 +66,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Pushing the boundaries of intelligent systems',
     category: 'ai',
     images: [
-      'images/background/CategoryBannerImages/cardioAi.png',
-      'images/background/CategoryBannerImages/phishguard.png',
-      'images/background/CategoryBannerImages/spotifyAi.png'
+      'images/background/CategoryBannerImages/cardioAi.webp',
+      'images/background/CategoryBannerImages/phishguard.webp',
+      'images/background/CategoryBannerImages/spotifyAi.webp'
     ],
     accentColorLight: '#7D7DFF',   // Soft Neon Purple
     accentColorDark: '#5A5AFF',    // Deep Glow Indigo
     icon: '🤖',
-    backgroundImage: 'images/background/CategoryBannerImages/AiBackgroundImage.png'
+    backgroundImage: 'images/background/CategoryBannerImages/AiBackgroundImage.webp'
   },
   {
     id: 'ui',
@@ -82,14 +82,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Creating experiences that users love',
     category: 'ui',
     images: [
-      'images/background/CategoryBannerImages/UiUxBackgroundImage.png',
-      'images/background/CategoryBannerImages/eventify_UI.png',
-      'images/background/CategoryBannerImages/MarishaCocoPrototype.png'
+      'images/background/CategoryBannerImages/UiUxBackgroundImage.webp',
+      'images/background/CategoryBannerImages/eventify_UI.webp',
+      'images/background/CategoryBannerImages/MarishaCocoPrototype.webp'
     ],
     accentColorLight: '#FFB84D',   // Warm Gold-Orange
     accentColorDark: '#FF8C00',    // Rich Amber Glow
     icon: '🎨',
-    backgroundImage: 'images/background/CategoryBannerImages/UiUxBackgroundImage.png'
+    backgroundImage: 'images/background/CategoryBannerImages/UiUxBackgroundImage.webp'
   },
   {
     id: 'video',
@@ -98,14 +98,14 @@ const bannerItems: BannerItem[] = [
     tagline: 'Bringing stories to life through motion',
     category: 'video',
     images: [
-      'images/background/CategoryBannerImages/Davincy.png',
-      'images/background/CategoryBannerImages/Helicopter-3D-Model.png',
-      'images/background/CategoryBannerImages/GameTrailer2024.png'
+      'images/background/CategoryBannerImages/Davincy.webp',
+      'images/background/CategoryBannerImages/Helicopter-3D-Model.webp',
+      'images/background/CategoryBannerImages/GameTrailer2024.webp'
     ],
     accentColorLight: '#FF6EC7',   // Vibrant Pink
     accentColorDark: '#FF1493',    // Deep Neon Pink Glow
     icon: '🎥',
-    backgroundImage: 'images/background/CategoryBannerImages/videoBackgroundImage.png' 
+    backgroundImage: 'images/background/CategoryBannerImages/videoBackgroundImage.webp' 
   },
   {
     id: 'writing',
@@ -114,9 +114,9 @@ const bannerItems: BannerItem[] = [
     tagline: 'Words that connect and inspire action',
     category: 'writing',
     images: [
-      'images/background/CategoryBannerImages/react-native-app-security-biometric-authentication.png', 
-      'images/background/CategoryBannerImages/why-choose-react-over-flutter.png',
-      'images/background/CategoryBannerImages/expo-vs-react-native-cli.png'
+      'images/background/CategoryBannerImages/react-native-app-security-biometric-authentication.webp', 
+      'images/background/CategoryBannerImages/why-choose-react-over-flutter.webp',
+      'images/background/CategoryBannerImages/expo-vs-react-native-cli.webp'
     ],
     accentColorLight: '#FFD700',  // Bright Gold
 accentColorDark: '#FFA000',   // Deep Amber
@@ -126,7 +126,7 @@ accentColorDark: '#FFA000',   // Deep Amber
 
 
     icon: '📝',
-    backgroundImage: 'images/background/CategoryBannerImages/WriteBackgroundImage.png'
+    backgroundImage: 'images/background/CategoryBannerImages/WriteBackgroundImage.webp'
   }
 ];
 

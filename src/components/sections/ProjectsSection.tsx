@@ -551,7 +551,7 @@ const handleInputFocus = () => {
             <SocialFlyer
               title={flyerProject.title}
               description={flyerProject.description}
-              imageUrl={flyerProject.metadata?.alt || "/default-flyer.png"}
+              imageUrl={flyerProject.metadata?.alt || "/default-flyer.webp"}
               tags={flyerProject.tags}
               ctaText="Go to page"
               ctaLink={flyerProject.links?.demo || flyerProject.links?.github || "#"}

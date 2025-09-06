@@ -18,7 +18,7 @@ export const projectsSoftware: Project[] = [
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
     priority: 2,
-    image: "/images/projects/phishguard.png",
+    image: "/images/projects/phishguard.webp",
     download: "https://drive.google.com/file/d/11xEHzW4VKOX8IiQqTQkNO5WHx9K0e8ZT/view?usp=sharing", 
   },
   {
@@ -37,7 +37,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Desktop Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/electratrack.png",
+    image: "/images/projects/electratrack.webp",
     priority: 3,
     download: "https://drive.google.com/file/d/1ureLOiz6dWmUEAQz-HfsE_Vh6Kp193zC/view?usp=sharing", 
     
@@ -76,7 +76,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/myifi.png",
+    image: "/images/projects/myifi.webp",
   },
   {
     id: "luckywallet",
@@ -94,7 +94,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/luckywallet.png",
+    image: "/images/projects/luckywallet.webp",
   },
   {
     id: "sfin",
@@ -112,7 +112,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/sfin.png",
+    image: "/images/projects/sfin.webp",
   },
   
   {
@@ -131,7 +131,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Web Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/supermarket-inventory.png",
+    image: "/images/projects/supermarket-inventory.webp",
     priority: 5,
   },
   {
@@ -151,7 +151,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Web Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/astronova.png",
+    image: "/images/projects/astronova.webp",
   },
   {
     id: "bus-management",
@@ -169,7 +169,7 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Mobile Apps",
     mainCategory: "Software Development",
-    image: "/images/projects/bus-management.png",
+    image: "/images/projects/bus-management.webp",
     priority: 4,
   },
   {
@@ -189,6 +189,6 @@ export const projectsSoftware: Project[] = [
     },
     subCategory: "Software QA",
     mainCategory: "Software Development",
-    image: "/images/projects/qa-automation.png",
+    image: "/images/projects/qa-automation.webp",
   },
 ];
