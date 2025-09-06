@@ -244,16 +244,16 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ content, isLoading, 
       // In a real implementation, you would fetch the article content
       // For demo purposes, we'll use a placeholder
       setArticleContent(`
-        <h2>Introduction</h2>
-        <p>This is a placeholder for the article content. In a real implementation, 
-        you would fetch the content from the provided URL or use an embed service.</p>
-        <p>For Medium articles, you might use the Medium API or oEmbed to display content.</p>
-        <h2>Key Points</h2>
-        <ul>
-          <li>Modern design principles</li>
-          <li>User experience considerations</li>
-          <li>Technical implementation details</li>
-        </ul>
+       <h2>Article Preview Unavailable</h2>
+      <p>Medium does not provide a public API for directly embedding article content here.</p>
+      <p>To read the full article, please open it directly on Medium using the link below.</p>
+      <h2>Why This Happens</h2>
+      <ul>
+        <li>Medium restricts direct access to article content.</li>
+        <li>Previews require user interaction due to platform policies.</li>
+        <li>Click the link below to view the complete article on Medium.</li>
+      </ul>
+
       `);
       onLoad();
     }
