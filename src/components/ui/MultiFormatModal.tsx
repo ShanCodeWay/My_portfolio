@@ -29,28 +29,30 @@ export default function MultiFormatModal({ isOpen, onClose, title, content, type
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (isOpen) {
-      // Reset states when modal opens
-      setHasError(false);
+useEffect(() => {
+  if (isOpen) {
+    setHasError(false);
+
+    // For articles, skip loading state entirely
+    if (type === "article") {
+      setIsLoading(false);
+    } else {
       setIsLoading(true);
-      
-      // Add event listener for beforeunload
-      const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-        if (type === 'youtube' || type === 'pdf') {
-          e.preventDefault();
-          e.returnValue = 'You have content playing. Are you sure you want to leave?';
-          return 'You have content playing. Are you sure you want to leave?';
-        }
-      };
-
-      window.addEventListener('beforeunload', handleBeforeUnload);
-
-      return () => {
-        window.removeEventListener('beforeunload', handleBeforeUnload);
-      };
     }
-  }, [isOpen, type]);
+
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (type === 'youtube' || type === 'pdf') {
+        e.preventDefault();
+        e.returnValue = 'You have content playing. Are you sure you want to leave?';
+        return 'You have content playing. Are you sure you want to leave?';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }
+}, [isOpen, type]);
+
 
   const handleClose = () => {
     onClose();
@@ -103,16 +105,13 @@ export default function MultiFormatModal({ isOpen, onClose, title, content, type
       case 'article':
         return (
           <ArticleModal
-            content={content}
-            isLoading={isLoading}
-            hasError={hasError}
-            metadata={metadata}
-            onLoad={() => setIsLoading(false)}
-            onError={() => {
-              setIsLoading(false);
-              setHasError(true);
-            }}
-          />
+                  content={content}
+                  isLoading={false} 
+                  hasError={hasError}
+                  metadata={metadata}
+                  onLoad={() => {}}
+                  onError={() => setHasError(true)}
+                />
         );
       case 'pdf':
         return (

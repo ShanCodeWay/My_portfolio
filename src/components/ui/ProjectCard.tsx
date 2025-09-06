@@ -91,21 +91,29 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     return '';
   };
 
-  const handleContentClick = (
-    e: React.MouseEvent,
-    url: string,
-    type: ModalType
-  ) => {
-    e.preventDefault();
+const handleContentClick = (
+  e: React.MouseEvent,
+  url: string,
+  type: ModalType
+) => {
+  e.preventDefault();
 
-    // store click coords
-    document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
-    document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
+  document.documentElement.style.setProperty("--modal-x", `${e.clientX}px`);
+  document.documentElement.style.setProperty("--modal-y", `${e.clientY}px`);
 
-    setModalType(type);
-    setModalContent(url);
+  setModalType(type);
+  setModalContent(url);
+
+  // If it's an article, open immediately (no loading state needed)
+  if (type === "article") {
     setIsModalOpen(true);
-  };
+    return;
+  }
+
+  // For other types (YouTube, images, PDFs), open with loading
+  setIsModalOpen(true);
+};
+
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     e.preventDefault();
