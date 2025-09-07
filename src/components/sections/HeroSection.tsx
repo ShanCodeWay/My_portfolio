@@ -263,7 +263,7 @@ export default function HeroSection(): React.JSX.Element {
         </div>
       </div>
                 <QRCodeResume 
-                url="https://your-portfolio.com/resume" 
+                url="https://drive.google.com/uc?export=download&id=11WKmaAOa38BwZxCH3OMIaSbGZGsDPSah"
                 size={100}
                 position="fixed"
                 className="hidden md:block"
