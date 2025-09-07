@@ -50,7 +50,7 @@ export const projectsSoftware: Project[] = [
     tags: ["React Native", "Firebase"],
     links: {
       //demo: "https://youtu.be/your-eventify-app-demo",
-      github: "https://github.com/your-repo",
+      //github: "https://github.com/your-repo",
     },
     metadata: {
       author: "Darshana Wijebahu",
