@@ -54,12 +54,20 @@ export default function FollowMe() {
               color: platform.color
             }}
           >
-            <div className="social-icon-wrapper" style={{ color: platform.color }}>
-              <SocialLink
-                href={platform.href}
-                icon={platform.icon}
-                color={platform.color}
-              />
+            <div
+              className="social-icon-wrapper"
+              style={{
+                color: platform.color,
+                pointerEvents: 'none' 
+              }}
+            >
+              <div style={{ pointerEvents: 'auto' }}>
+                <SocialLink
+                  href={platform.href}
+                  icon={platform.icon}
+                  color={platform.color}
+                />
+              </div>
               <div className="social-glow"></div>
             </div>
             <span className="social-name">{platform.name}</span>
@@ -69,3 +77,4 @@ export default function FollowMe() {
     </div>
   );
 }
+
