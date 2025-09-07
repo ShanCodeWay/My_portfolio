@@ -49,27 +49,20 @@ export default function FollowMe() {
           <div
             key={platform.name}
             className="social-link-item"
-            style={{ 
+            style={{
               animationDelay: `${index * 100}ms`,
               color: platform.color
             }}
           >
             <div className="social-icon-wrapper" style={{ color: platform.color }}>
-              <SocialLink 
-                href={platform.href} 
+              <SocialLink
+                href={platform.href}
                 icon={platform.icon}
                 color={platform.color}
               />
               <div className="social-glow"></div>
             </div>
-            <a
-              href={platform.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-name-link"
-            >
-              <span className="social-name">{platform.name}</span>
-            </a>
+            <span className="social-name">{platform.name}</span>
           </div>
         ))}
       </div>
