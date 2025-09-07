@@ -580,7 +580,7 @@ const handleInputFocus = () => {
         <div className="projects-cta">
           <p className="cta-text">Want to see more of my work?</p>
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/shanCodeWay" 
             className="cta-button"
             target="_blank"
             rel="noopener noreferrer"
